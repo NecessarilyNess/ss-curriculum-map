@@ -88,3 +88,5 @@ def multiple_names(string_list):
     num_of_splits = string_list.count('// ') 
     new_list = string_list.split('// ', num_of_splits)
     return new_list
+
+print(module_dict)
