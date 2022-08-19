@@ -10,7 +10,7 @@
 #taught_skills = {}
 #required_skills = {}
 #Repeated terms will just have the number written next to the term.
-#Deal with cases
+#Deal with capitalisation
 '''
 Mark 1 of data structure:
 Module_name = {'module information':['code',year,term,number of sections] ,'section_number': ['section_title', taught_keywords_dict, required_keywords_dict, taught_skills_dict, required_skills_dict]}
@@ -28,7 +28,7 @@ module_dict = {}
 #Get Module information
 info_length = len(dataframe['Module Information'])
 module_dict['module information'] = []
-for i in range(1,info_length):
+for i in range(0,info_length):
     if type(dataframe['Module Information'][i]) == str:
         module_dict['module information'].append(dataframe['Module Information'][i])
     else:
