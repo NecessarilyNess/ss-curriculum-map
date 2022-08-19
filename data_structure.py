@@ -1,21 +1,13 @@
-#After reading the csv file
 #everything needs to be made lower case and the white spaces need to be cleaned up
 #For different versions of the same term, separate with //
-#Split the list into each of it's key elements
-
+#This needs to be rewritten as a function
 #Applied_Complex_Analysis = {"module information":["MATH60006",2,1], "section_1":["Review of Complex Numbers",taught_keywords,required_keywords,taught_skills,required_skills]}
 
-#taught_keywords = {"conformality":[,0], "linear mapping":[,0], "circle property":[,0], "critical points":[,0], "inverse mappings":[,0], "power function mapping":[,0], "linear fractional transformation":[[Mobius transformation, Bilinear transformation],0], "complex infinity":[,0], "Joukovskii transformation":[,0], "Schwarz-Christoffel transformation":[,0], "Laplace's equation":[,0], "Dirichlet boundary condition":[,0], "Neumann boundary condition":[,0], "ideal flow past a flat plate":[,0]}
-#required_keywords = {}
-#taught_skills = {}
-#required_skills = {}
-#Repeated terms will just have the number written next to the term.
-#Deal with capitalisation
 '''
 Mark 1 of data structure:
 Module_name = {'module information':['code',year,term,number of sections] ,'section_number': ['section_title', taught_keywords_dict, required_keywords_dict, taught_skills_dict, required_skills_dict]}
 '''
-#import csv
+
 import pandas as pd
 df = pd.read_csv (r'./Modules.csv')
 dataframe = {}
