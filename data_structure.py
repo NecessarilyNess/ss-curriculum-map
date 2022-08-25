@@ -1,4 +1,15 @@
+import json
+import pandas as pd
 ######### HELPER FUNCTIONS ##############
+def write_to_json(file_path, module_dict):
+    '''
+    Updates the json dictionary.
+    Parameters:
+        file_path (str): The filepath for the json file.
+        module_dict (dict): Module dictionary
+    '''
+    with open(file_path, "w") as outfile:
+        json.dump(module_dict, outfile)
 
 def multiple_names(string_list):
     '''
@@ -27,16 +38,13 @@ def whitespace_cleaner(term):
 def dict_maker(module_csv_path):
     '''
     Takes module information from a csv file and formats as a python dictionary of the form 
-    Module_name = {'module information':['code',year,term,number of sections],
+    Module_name = {'module information':['module name', 'code',year,term,number of sections],
     'section_number': ['section_title', taught_keywords_dict, required_keywords_dict, taught_skills_dict, required_skills_dict]}
+    Writes to a json file containing all modules.
     
     Parameters:
         module_csv_path (str): Path to the module csv file. Expected syntax 'module_csv_files/Module.csv' 
-    Returns:
-        module_dict (dict): Dictionary with module information
     '''
-    import pandas as pd
-
     # Import module from csv file
     df = pd.read_csv (r'%s'%module_csv_path)
     dataframe = {}
@@ -115,7 +123,7 @@ def dict_maker(module_csv_path):
                 break
         module_dict['section_'+str(j)].append(required_skills)
 
-    return module_dict
+    module_code = module_dict['module information'][1][0]
+    print(module_code)
 
-
-
+    write_to_json('./module_dict.json', {module_code : module_dict})
