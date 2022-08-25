@@ -1,17 +1,13 @@
-#everything needs to be made lower case and the white spaces need to be cleaned up
-#For different versions of the same term, separate with //
-#This needs to be rewritten as a function
-#Applied_Complex_Analysis = {"module information":["MATH60006",2,1], "section_1":["Review of Complex Numbers",taught_keywords,required_keywords,taught_skills,required_skills]}
-
-'''
-Mark 1 of data structure:
-Module_name = {'module information':['code',year,term,number of sections] ,'section_number': ['section_title', taught_keywords_dict, required_keywords_dict, taught_skills_dict, required_skills_dict]}
-'''
-
 ######### HELPER FUNCTIONS ##############
 
-    #Function to separate AKA
 def multiple_names(string_list):
+    '''
+    Separates different names for the same idea. Expected syntax 'term// term'
+    Parameters:
+        string_list (str): Names separated by //
+    Returns:
+        new_list (list): Names for the same idea as a list.
+    '''
     num_of_splits = string_list.count('// ') 
     new_list = string_list.split('// ', num_of_splits)
     return new_list
@@ -19,34 +15,40 @@ def multiple_names(string_list):
 def whitespace_cleaner(term):
     '''
     Removes all duplicate, trailing and leading whitespaces. Also makes all text lower case.
-
     Parameters:
         term (str): A term as a string.
-
     Returns:
         term (str): Term with duplicate, trailing and leading whitespaces removed.
     '''
     return(" ".join((term.lower()).split()))
 
-
-
 ############################################
 
 def dict_maker(module_csv_path):
     '''
-    module_csv_path: Path to the module csv file. In the form './Module.csv'
+    Takes module information from a csv file and formats as a python dictionary of the form 
+    Module_name = {'module information':['code',year,term,number of sections],
+    'section_number': ['section_title', taught_keywords_dict, required_keywords_dict, taught_skills_dict, required_skills_dict]}
+    
+    Parameters:
+        module_csv_path (str): Path to the module csv file. Expected syntax 'module_csv_files/Module.csv' 
+    Returns:
+        module_dict (dict): Dictionary with module information
     '''
     import pandas as pd
+
+    # Import module from csv file
     df = pd.read_csv (r'%s'%module_csv_path)
     dataframe = {}
     for (columnName, columnData) in df.iteritems():
         dataframe[columnName] = list(columnData.values)
 
     num_of_sections = int(dataframe['Module Information'][4])
+
+    #Initialising
     module_dict = {}
 
-
-    #Get Module information
+    #Get module information
     info_length = len(dataframe['Module Information'])
     module_dict['module information'] = []
     for i in range(0,info_length):
@@ -55,6 +57,7 @@ def dict_maker(module_csv_path):
         else:
             break
 
+    #Add sections and their corresponding keywords
     for j in range(1, num_of_sections+1):
         module_dict['section_'+str(j)] = []
         #Add section name
@@ -111,6 +114,7 @@ def dict_maker(module_csv_path):
             else:
                 break
         module_dict['section_'+str(j)].append(required_skills)
+
     return module_dict
 
 
