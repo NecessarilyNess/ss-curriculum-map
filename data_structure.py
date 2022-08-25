@@ -7,15 +7,34 @@
 Mark 1 of data structure:
 Module_name = {'module information':['code',year,term,number of sections] ,'section_number': ['section_title', taught_keywords_dict, required_keywords_dict, taught_skills_dict, required_skills_dict]}
 '''
+
+######### HELPER FUNCTIONS ##############
+
     #Function to separate AKA
 def multiple_names(string_list):
     num_of_splits = string_list.count('// ') 
     new_list = string_list.split('// ', num_of_splits)
     return new_list
 
+def whitespace_cleaner(term):
+    '''
+    Removes all duplicate, trailing and leading whitespaces. Also makes all text lower case.
+
+    Parameters:
+        term (str): A term as a string.
+
+    Returns:
+        term (str): Term with duplicate, trailing and leading whitespaces removed.
+    '''
+    return(" ".join((term.lower()).split()))
+
+
+
+############################################
+
 def dict_maker(module_csv_path):
     '''
-    module_csv_path: Path to the module csv file. In the form './Modules.csv'
+    module_csv_path: Path to the module csv file. In the form './Module.csv'
     '''
     import pandas as pd
     df = pd.read_csv (r'%s'%module_csv_path)
@@ -32,14 +51,14 @@ def dict_maker(module_csv_path):
     module_dict['module information'] = []
     for i in range(0,info_length):
         if type(dataframe['Module Information'][i]) == str:
-            module_dict['module information'].append(dataframe['Module Information'][i])
+            module_dict['module information'].append([whitespace_cleaner(dataframe['Module Information'][i])])
         else:
             break
 
-    for j in range(1, num_of_sections):
+    for j in range(1, num_of_sections+1):
         module_dict['section_'+str(j)] = []
-        #Add module name
-        module_dict['section_'+str(j)].append(dataframe['Section '+str(j)][0])
+        #Add section name
+        module_dict['section_'+str(j)].append(whitespace_cleaner(dataframe['Section '+str(j)][0]))
         #Identify taught keywords
         taught_keywords = []
         len_of_section = len(dataframe['Section '+str(j)])
@@ -47,9 +66,9 @@ def dict_maker(module_csv_path):
             if dataframe['Section '+str(j)][i] != 'Keywords (Prerequisite)':
                 #Deal with potential for mutliple names for the same term
                 if '// ' in dataframe['Section '+str(j)][i]:
-                    taught_keywords.append(multiple_names(dataframe['Section '+str(j)][i]))
+                    taught_keywords.append(multiple_names(whitespace_cleaner(dataframe['Section '+str(j)][i])))
                 else:
-                    taught_keywords.append([dataframe['Section '+str(j)][i]])
+                    taught_keywords.append([whitespace_cleaner(dataframe['Section '+str(j)][i])])
             else:
                 req_start = i
                 break
@@ -60,9 +79,9 @@ def dict_maker(module_csv_path):
             if dataframe['Section '+str(j)][i] != 'Skills (Taught)':
                 #Deal with potential for mutliple names for the same term
                 if '// ' in dataframe['Section '+str(j)][i]:
-                    required_keywords.append(multiple_names(dataframe['Section '+str(j)][i]))
+                    required_keywords.append(multiple_names(whitespace_cleaner(dataframe['Section '+str(j)][i])))
                 else:
-                    required_keywords.append([dataframe['Section '+str(j)][i]])
+                    required_keywords.append([whitespace_cleaner(dataframe['Section '+str(j)][i])])
             else:
                 taught_skills_start = i
                 break
@@ -73,9 +92,9 @@ def dict_maker(module_csv_path):
             if dataframe['Section '+str(j)][i] != 'Skills (Prerequisite)':
                 #Deal with potential for mutliple names for the same term
                 if '// ' in dataframe['Section '+str(j)][i]:
-                    taught_skills.append(multiple_names(dataframe['Section '+str(j)][i]))
+                    taught_skills.append(multiple_names(whitespace_cleaner(dataframe['Section '+str(j)][i])))
                 else:
-                    taught_skills.append([dataframe['Section '+str(j)][i]])
+                    taught_skills.append([whitespace_cleaner(dataframe['Section '+str(j)][i])])
             else:
                 req_skills_start = i
                 break   
@@ -86,14 +105,13 @@ def dict_maker(module_csv_path):
             if dataframe['Section '+str(j)][i] == str:
                 #Deal with potential for mutliple names for the same term
                 if '// ' in dataframe['Section '+str(j)][i]:
-                    required_skills.append(multiple_names(dataframe['Section '+str(j)][i]))
+                    required_skills.append(multiple_names(whitespace_cleaner(dataframe['Section '+str(j)][i])))
                 else:
-                    required_skills.append([dataframe['Section '+str(j)][i]])
+                    required_skills.append([whitespace_cleaner(dataframe['Section '+str(j)][i])])
             else:
                 break
         module_dict['section_'+str(j)].append(required_skills)
-
-        return module_dict
+    return module_dict
 
 
 
