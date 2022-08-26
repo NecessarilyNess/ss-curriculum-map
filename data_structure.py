@@ -39,7 +39,7 @@ def dict_maker(module_csv_path):
     '''
     Takes module information from a csv file and formats as a python dictionary of the form 
     Module_name = {'module information':['module name', 'code',year,term,number of sections],
-    'section_number': ['section_title', taught_keywords_dict, required_keywords_dict, taught_skills_dict, required_skills_dict]}
+    'section_number': ['section_title', taught_keywords, required_keywords, taught_skills, required_skills]}
     Writes to a json file containing all modules.
     
     Parameters:
@@ -113,7 +113,7 @@ def dict_maker(module_csv_path):
         #Identify required skills  
         required_skills = []
         for i in range(req_skills_start+1, len_of_section):
-            if dataframe['Section '+str(j)][i] == str:
+            if type(dataframe['Section '+str(j)][i]) == str:
                 #Deal with potential for mutliple names for the same term
                 if '// ' in dataframe['Section '+str(j)][i]:
                     required_skills.append(multiple_names(whitespace_cleaner(dataframe['Section '+str(j)][i])))
@@ -124,6 +124,4 @@ def dict_maker(module_csv_path):
         module_dict['section_'+str(j)].append(required_skills)
 
     module_code = module_dict['module information'][1][0]
-
-
     write_to_json('./module_dict.json', {module_code : module_dict})
