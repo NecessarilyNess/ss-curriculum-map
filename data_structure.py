@@ -124,6 +124,6 @@ def dict_maker(module_csv_path):
         module_dict['section_'+str(j)].append(required_skills)
 
     module_code = module_dict['module information'][1][0]
-    print(module_code)
+
 
     write_to_json('./module_dict.json', {module_code : module_dict})
