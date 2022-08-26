@@ -95,21 +95,34 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
             keyword = keywords_input[i][0]
             section = is_repeated(module_dict2,keyword,index2)
             if type(section) == str:
-                repeated_sections[section]+=1
+                if section in repeated_sections.keys():
+                    repeated_sections[section]+=1
+                else: 
+                    repeated_sections[section] = 0
+                    repeated_sections[section]+=1
                 repeat_counter+=1
         else:
             for j in range(len(keywords_input[i])):
                 keyword = keywords_input[i][j]
                 section = is_repeated(module_dict2,keyword,index2)
                 if type(section) == str:
-                    repeated_sections[section]+=1
+                    if section in repeated_sections.keys():
+                        repeated_sections[section]+=1
+                    else: 
+                        repeated_sections[section] = 0
+                        repeated_sections[section]+=1
                     repeat_counter+=1
                     break
     squared_sum = 0
     for k in range(len(repeated_sections.values())):
         squared_sum += list(repeated_sections.values())[k]**2
 
+    divided_repeats = 0
+    max_repeats = 0
+    if len(repeated_sections.keys()) != 0:
+        divided_repeats = repeat_counter/len(repeated_sections.keys())
+        max_repeats = max(repeated_sections.values())
 
-    return [repeat_counter, repeat_counter/len(repeated_sections.keys()), max(repeated_sections.values()), squared_sum]
+    return [repeat_counter, divided_repeats , max_repeats, squared_sum, repeated_sections]
 
         
