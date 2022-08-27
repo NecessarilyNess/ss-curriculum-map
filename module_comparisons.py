@@ -2,6 +2,30 @@ import pandas as pd
 from search_file import *
 from data_structure import *
 
+############################## HELPER FUNCTIONS ##################################
+
+def normalise(array, factor):
+    for i in range(len(array)):
+                new_row = [val/factor for val in array[i]]
+                array[i] = new_row
+    return array
+
+def max_val_finder(array):
+    max_overall_value = 0
+    for i in range(len(array)):
+        max_value = max(array[i])
+        if max_value > max_overall_value:
+            max_overall_value = max_value
+    return max_overall_value
+
+def remove_diag(array):
+    for i in range(len(array)):
+        array[i][i] = 0
+    return array 
+
+###################################################################################
+
+
 def repeat_similarity(all_modules, index1, index2):
     '''
     Compares all modules available in module_dict.json for repeated keywords
@@ -18,7 +42,7 @@ def repeat_similarity(all_modules, index1, index2):
     '''
     module_codes = list(all_modules.keys())
     #initialising
-    num_repeated_keywords = []
+    repeated_keywords_array = []
 
     for module1 in module_codes:
         module_dict1 = all_modules[module1]
@@ -27,22 +51,17 @@ def repeat_similarity(all_modules, index1, index2):
             module_dict2 = all_modules[module2]
             overlap_list = is_there_overlap(module_dict1, module_dict2, index1, index2)
             repeat_count.append(overlap_list[0])
-        num_repeated_keywords.append(repeat_count)
+        repeated_keywords_array.append(repeat_count)
 
     #Remove diagonal components and finding maximum value
-    max_overall_value = 0
-    for i in range(len(num_repeated_keywords)):
-        num_repeated_keywords[i][i] = 0
-        max_value = max(num_repeated_keywords[i])
-        if max_value > max_overall_value:
-            max_overall_value = max_value
-    #Normalising
-    
+    max_overall_value = max_val_finder(repeated_keywords_array)
+    repeated_keywords_array = remove_diag(repeated_keywords_array)
+
+    #Normalising with respsect to maximum value
     if max_overall_value != 0:
-        for i in range(len(num_repeated_keywords)):
-                new_row = [val/max_overall_value for val in num_repeated_keywords[i]]
-                num_repeated_keywords[i] = new_row
-    return num_repeated_keywords
+        repeated_keywords_array = normalise(repeated_keywords_array, max_overall_value)
+
+    return repeated_keywords_array
 
 def data_to_excel(all_modules):
     taught_keywords_array = keyword_similarity(all_modules)
