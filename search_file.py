@@ -12,7 +12,7 @@ I need functions that do the following
 - Extracts required skills DONE
 - Returns which section a keyword/skill is from DONE
 - Is the keyword in the other list DONE
-- Keeps track and count of what is repeated
+- Keeps track and count of what is repeated DONE
 - Counting the number of skills
 '''
 ######################### EXTRACTION FUNCTIONS ##############################
@@ -89,6 +89,7 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
     keywords_input = keywords(module_dict1,index1)
     repeat_counter = 0
     repeated_sections = {}
+    repeated_keywords = []
 
     for i in range(len(keywords_input)):
         if len(keywords_input[i]) == 1:
@@ -101,6 +102,7 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
                     repeated_sections[section] = 0
                     repeated_sections[section]+=1
                 repeat_counter+=1
+                repeated_keywords.append(keyword)
         else:
             for j in range(len(keywords_input[i])):
                 keyword = keywords_input[i][j]
@@ -112,6 +114,7 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
                         repeated_sections[section] = 0
                         repeated_sections[section]+=1
                     repeat_counter+=1
+                    repeated_keywords.append(keyword)
                     break
     squared_sum = 0
     for k in range(len(repeated_sections.values())):
@@ -123,6 +126,6 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
         divided_repeats = repeat_counter/len(repeated_sections.keys())
         max_repeats = max(repeated_sections.values())
 
-    return [repeat_counter, divided_repeats , max_repeats, squared_sum, repeated_sections]
+    return [repeat_counter, divided_repeats , max_repeats, squared_sum, repeated_sections, repeated_keywords]
 
         
