@@ -13,7 +13,8 @@ I need functions that do the following
 - Returns which section a keyword/skill is from DONE
 - Is the keyword in the other list DONE
 - Keeps track and count of what is repeated DONE
-- Counting the number of skills
+- Counting the number of skills DONE
+- Write a function that takes all the modules in the csv folder and loads them into the json file
 '''
 ######################### EXTRACTION FUNCTIONS ##############################
 
@@ -66,6 +67,27 @@ def is_repeated(module_dict, keyword, index):
                 return 'section_'+str(i)
     return False
 
+def skill_importance(module_dict, index):
+    '''
+    Identifies the frequency with which skills appear in a module.
+    Paramters: 
+        module_dict (dict): Module dictionary
+        index (int): Takes the value 3 or 4 to determine which skills to consider
+            3: taught skills
+            4: required skills
+    Returns:
+        skills (dict): Dictionary containing skills and the number of chapters it
+        appears in
+    '''
+    skills = {}
+    skill_list = keywords(module_dict,index)
+    for skill in skill_list:
+        if skill[0] in skills.keys():
+            skills[skill[0]]+=1
+        else:
+            skills[skill[0]]=1
+    return skills
+
 ########################## THE BIG FUNCTIONS ###############################
 
 def is_there_overlap(module_dict1, module_dict2, index1, index2):
@@ -99,8 +121,7 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
                 if section in repeated_sections.keys():
                     repeated_sections[section]+=1
                 else: 
-                    repeated_sections[section] = 0
-                    repeated_sections[section]+=1
+                    repeated_sections[section]=1
                 repeat_counter+=1
                 repeated_keywords.append(keyword)
         else:
@@ -111,8 +132,7 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
                     if section in repeated_sections.keys():
                         repeated_sections[section]+=1
                     else: 
-                        repeated_sections[section] = 0
-                        repeated_sections[section]+=1
+                        repeated_sections[section]=1
                     repeat_counter+=1
                     repeated_keywords.append(keyword)
                     break
