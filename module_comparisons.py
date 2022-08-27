@@ -75,6 +75,7 @@ def results(pairs, index1, index2):
             module2 = pairs[i][1]
             print(' '.join([code_to_name(all_modules, module1)] + ['may be a good module to take for'] + [code_to_name(all_modules,module2)]))
     elif index1 == 2 and index2 == 2:
+        pairs = remove_duplicate(pairs)
         for i in range(len(pairs)):
             module1 = pairs[i][0]
             module2 = pairs[i][1]
