@@ -97,4 +97,19 @@ def data_to_excel(all_modules,index1, index2, info_index):
                     columns=module_codes)
     df1.to_excel(excel_writer = "/Users/vanessamadu/Documents/StudentShapers/StudentShapers_code/test.xlsx")
 
+def clustering_score(all_modules, index1, index2):
+    '''
+    Comparing the different types of keywords using the indices
+    averages 1:3:3
+    '''
+    divided_repeated_keywords = repeat_similarity(all_modules, index1, index2, 1)
+    max_repeats = repeat_similarity(all_modules, index1, index2, 2)
+    squared_sum = repeat_similarity(all_modules, index1, index2, 3)
+
+    clustering_matrix = []
+    for i in range(len(squared_sum)):
+        new_row = [(j+3*k+3*l)/7 for j,k,l in zip(divided_repeated_keywords[i], max_repeats[i], squared_sum[i])]
+        clustering_matrix.append(new_row)
+    return(clustering_matrix)
+
 
