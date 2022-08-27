@@ -45,6 +45,56 @@ def remove_diag(array):
         array[i][i] = 0
     return array 
 
+def pair_finder(all_modules,info_array, min_val):
+    '''
+    Look for all the module pairs that have a similarity metric greater than min_val
+    '''
+    pairs = []
+    module_codes = list(all_modules.keys())
+    length = len(info_array)
+    for i in range(length):
+        for j in range(length):
+            if info_array[i][j] > min_val:
+                pairs.append([module_codes[i],module_codes[j]])
+    return pairs
+
+def results(pairs, index1, index2):
+    '''
+    This only tells us about repeated keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
+    that were used to generate the info array.
+    '''
+    if index1 ==1 and index2==1:
+        pairs = remove_duplicate(pairs)
+        for i in range(len(pairs)):
+            module1 = pairs[i][0]
+            module2 = pairs[i][1]
+            print(' '.join([code_to_name(all_modules, module1)] + ['may be similar to'] + [code_to_name(all_modules, module2)]))
+    elif index1 == 1 and index2 == 2:
+        for i in range(len(pairs)):
+            module1 = pairs[i][0]
+            module2 = pairs[i][1]
+            print(' '.join([code_to_name(all_modules, module1)] + ['may be a good module to take for'] + [code_to_name(all_modules,module2)]))
+    elif index1 == 2 and index2 == 2:
+        for i in range(len(pairs)):
+            module1 = pairs[i][0]
+            module2 = pairs[i][1]
+            print(' '.join([code_to_name(all_modules, module1)] + ["may have the same 'prerequisites' as"] + [code_to_name(all_modules, module2)]))
+
+def remove_duplicate(pairs):
+    for i in range(len(pairs)):
+        pairs[i] = set(pairs[i])
+    for i in range(len(pairs)):
+        if pairs.count(pairs[i]) != 1:
+            pairs[i] = 'dup'
+    pairs.remove('dup')
+    pairs = [list(pair) for pair in pairs]
+    return pairs
+
+def code_to_name(all_modules, code):
+    module = all_modules[code]
+    module_name = module["module information"][0][0]
+    return module_name
+
 ###################################################################################
 
 
