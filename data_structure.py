@@ -1,5 +1,10 @@
 import json
 import pandas as pd
+
+with open('./module_dict.json', 'r') as openfile:
+    # Reading from json file
+    all_modules = json.load(openfile)
+
 ######### HELPER FUNCTIONS ##############
 def write_to_json(file_path, module_dict):
     '''
@@ -35,7 +40,7 @@ def whitespace_cleaner(term):
 
 ############################################
 
-def dict_maker(module_csv_path):
+def dict_maker(module_csv_path, all_modules):
     '''
     Takes module information from a csv file and formats as a python dictionary of the form 
     Module_name = {'module information':['module name', 'code',year,term,number of sections],
@@ -124,4 +129,5 @@ def dict_maker(module_csv_path):
         module_dict['section_'+str(j)].append(required_skills)
 
     module_code = module_dict['module information'][1][0]
-    write_to_json('./module_dict.json', {module_code : module_dict})
+    all_modules[module_code] = module_dict
+    write_to_json('./module_dict.json', all_modules)
