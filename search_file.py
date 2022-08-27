@@ -15,6 +15,7 @@ I need functions that do the following
 - Keeps track and count of what is repeated DONE
 - Counting the number of skills DONE
 - Write a function that takes all the modules in the csv folder and loads them into the json file
+- Look for all pairs that have a metric higher than some value.
 '''
 ######################### EXTRACTION FUNCTIONS ##############################
 
