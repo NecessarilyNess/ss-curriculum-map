@@ -26,7 +26,7 @@ def remove_diag(array):
 ###################################################################################
 
 
-def repeat_similarity(all_modules, index1, index2):
+def repeat_similarity(all_modules, index1, index2, info_index):
     '''
     Compares all modules available in module_dict.json for repeated keywords
     Parameters:
@@ -36,13 +36,18 @@ def repeat_similarity(all_modules, index1, index2):
             (1,1): Compares taught keywords 
             (2,2): Compares required keywords
             (1,2): Compares taught keywords in module 1 with required keywords in module 2.
+        info_index (int): Selects the desired comparison metric from the following options
+            0: Number of repeated keywords (normalised wrt largest value)
+            1: Number of repeated keywords/number of chapters spread across (normalised wrt largest value)
+            2: Maximum number of repeated keywords in any section in module 2 (normalised wrt largest value)
+            3: Squared sum of number of repeated keywords in each chapter in modules 2 (normalised wrt largest value)
     Returns:
-        num_repeated_keywords (array): Returns an array where component ij is the 
-        the number of keywords that are repeated across module i and module j.
+        info (array): Returns an array where component ij is the the requested comparison information 
+        for module i and module j.
     '''
     module_codes = list(all_modules.keys())
     #initialising
-    repeated_keywords_array = []
+    info_array = []
 
     for module1 in module_codes:
         module_dict1 = all_modules[module1]
@@ -50,18 +55,17 @@ def repeat_similarity(all_modules, index1, index2):
         for module2 in module_codes:
             module_dict2 = all_modules[module2]
             overlap_list = is_there_overlap(module_dict1, module_dict2, index1, index2)
-            repeat_count.append(overlap_list[0])
-        repeated_keywords_array.append(repeat_count)
+            repeat_count.append(overlap_list[info_index])
+        info_array.append(repeat_count)
 
     #Remove diagonal components and finding maximum value
-    max_overall_value = max_val_finder(repeated_keywords_array)
-    repeated_keywords_array = remove_diag(repeated_keywords_array)
-
+    info_array = remove_diag(info_array)
+    max_overall_value = max_val_finder(info_array)
     #Normalising with respsect to maximum value
     if max_overall_value != 0:
-        repeated_keywords_array = normalise(repeated_keywords_array, max_overall_value)
+        info_array = normalise(info_array, max_overall_value)
 
-    return repeated_keywords_array
+    return info_array
 
 def data_to_excel(all_modules):
     taught_keywords_array = keyword_similarity(all_modules)
@@ -72,12 +76,3 @@ def data_to_excel(all_modules):
     df1.to_excel(excel_writer = "/Users/vanessamadu/Documents/StudentShapers/StudentShapers_code/test.xlsx")
 
 
-
-
-
-
-'''for i in range(len(module_codes)):
-    taught_keywords_array[i] = [module_codes[i]] + taught_keywords_array[i]
-repeat_count_matrix = [[0]+module_codes]
-repeat_count_matrix.append(taught_keywords_array)
-#df = pd.DataFrame(repeat_count_matrix).T///
