@@ -89,8 +89,7 @@ def repeat_similarity(all_modules, index1, index2, info_index):
 
     return info_array
 
-def data_to_excel(all_modules,index1, index2, info_index):
-    info_array = repeat_similarity(all_modules, index1, index2, info_index)
+def data_to_excel(all_modules, info_array):
     module_codes = list(all_modules.keys())
     df1 = pd.DataFrame(info_array,
                     index=module_codes,
