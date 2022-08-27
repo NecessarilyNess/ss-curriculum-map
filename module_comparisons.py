@@ -5,12 +5,27 @@ from data_structure import *
 ############################## HELPER FUNCTIONS ##################################
 
 def normalise(array, factor):
+    '''
+    Normalises all the values in symmetric array by a given factor 
+    Parameters:
+        array (array): Array of values
+        factor (int): Factor to normalise wrt
+    Returns:
+        array (array): Normalised array
+    '''
     for i in range(len(array)):
                 new_row = [val/factor for val in array[i]]
                 array[i] = new_row
     return array
 
 def max_val_finder(array):
+    '''
+    Finds the maximum value in a symmetric array
+    Parameters: 
+        array (array): Array of values
+    Returns:
+        max_overall_value (int): Maximum value in the array
+    '''
     max_overall_value = 0
     for i in range(len(array)):
         max_value = max(array[i])
@@ -19,6 +34,13 @@ def max_val_finder(array):
     return max_overall_value
 
 def remove_diag(array):
+    '''
+    Sets the components on the diagonal of a symmetric array to zero.
+    Parameters:
+        array (array): Array of values
+    Returns:
+        array (array): The same array with the diagonal set to zero.
+    '''
     for i in range(len(array)):
         array[i][i] = 0
     return array 
@@ -67,10 +89,10 @@ def repeat_similarity(all_modules, index1, index2, info_index):
 
     return info_array
 
-def data_to_excel(all_modules):
-    taught_keywords_array = keyword_similarity(all_modules)
+def data_to_excel(all_modules,index1, index2, info_index):
+    info_array = repeat_similarity(all_modules, index1, index2, info_index)
     module_codes = list(all_modules.keys())
-    df1 = pd.DataFrame(taught_keywords_array,
+    df1 = pd.DataFrame(info_array,
                     index=module_codes,
                     columns=module_codes)
     df1.to_excel(excel_writer = "/Users/vanessamadu/Documents/StudentShapers/StudentShapers_code/test.xlsx")
