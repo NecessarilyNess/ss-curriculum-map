@@ -90,6 +90,12 @@ def repeat_similarity(all_modules, index1, index2, info_index):
     return info_array
 
 def data_to_excel(all_modules, info_array):
+    '''
+    Writes chosen information into an excel spreadsheet
+    Parameters:
+        all_modules (dict): Dictionary containing all modules
+        info_array (array): Numerical metrics for each module
+    '''
     module_codes = list(all_modules.keys())
     df1 = pd.DataFrame(info_array,
                     index=module_codes,
@@ -98,8 +104,17 @@ def data_to_excel(all_modules, info_array):
 
 def clustering_score(all_modules, index1, index2):
     '''
-    Comparing the different types of keywords using the indices
-    averages 1:3:3
+    Provides a table of relative scores of 'clustering' of repeated keywords across all modules. Weights divided repeats,
+    max repeats and squared sum of repeats at 1:3:3.
+    Parameters: 
+        all_modules (dict): Dictionary containing all modules
+        index1 (int): Takes values 1 or 2
+        index2 (int): Takes values 1 or 2
+            (1,1): Compares taught keywords 
+            (2,2): Compares required keywords
+            (1,2): Compares taught keywords in module 1 with required keywords in module 2.
+    Returns:
+        clustering_matrix (array): Array of relative scores of 'clustering'
     '''
     divided_repeated_keywords = repeat_similarity(all_modules, index1, index2, 1)
     max_repeats = repeat_similarity(all_modules, index1, index2, 2)
