@@ -1,0 +1,35 @@
+﻿Module Information,Section 1,Section 2,Section 3,Section 4,Section 5
+Applied complex analysis,Review of complex analysis,Singular integral equation,Orthogonal polynomial,Conformal mapping,The Weiner-Hopf method
+MATH60006,Complex number in exponential form,Singular integral equation,Sturm-Liouville problem// Sturm-Liouville eigenvalue problem,Laplace's equation,Riemann-Hilbert problem
+3,Complex conjugate,Cauchy transform,Recurrence relation,Boundary condition,Jump condition
+2,Triangle inequality,Hilbert transform,Legendre equation 1,Conformal transformation,Integral-differential equation
+5,Complex derivative,Plemelj formula,Orthogonality 0,Linear function// Linear mapping,Fourier transform
+,Differentiable,Cauchy kernel,Orthogonal polynomial,Critical point,Inverse fourier transform
+,Cauchy-Riemann equation,Hilbert inversion formula,Weight function,Inverse mapping,Right-sided fourier transform
+,Analytic function,Logarithmic kernel,Jacobi polynomial,Curvilinear triangle,Left-sided fourier transform
+,Integral in complex plane,Ideal fluid flow post a flat plate,Chebyshev polynomial,Power function mapping,Asymptotic behaviour of right-sided fourier transform
+,ML-inequality,Laplace equation,Hermitte polynomial,Linear fractional transformation// Bilinear transformation// Mobius transformation,Product decomposition
+,Cauchy's theorem 0,Streamline,Laguerre polynomial,Joukovskii transformation,Sum decomposition
+,Contour integral,Harmonic 0,Uniqueness of  orthogonal polynomial,Schwarz-Christoffel transformation,Analytic continuation
+,Deformation theorem,Electrostatic potential of a point charge near a flat plate,Three-term recurrence relation,Dirichlet type// Dirichlet boundary condition,Keywords (Prerequisite)
+,Cauchy's integral theorem// Cauchy's integral formula,Keywords (Prerequisite),Rodriguez's formula,Newmann type// Newmann boundary condition,Skills (Taught)
+,Taylor series,Skills (Taught),Generating function,Conformality,Fourier transforms of derivatives
+,Laurent series,Solve converse singular integral equation,Function approximation with orthogonal polynomial,Circle property,Fourier transform
+,Residue theory,Solve singular integral equation,Jacobi operator,Complex infinity,Inverse fourier transform
+,Residue theorem,Solve Laplace equation,Keywords (Prerequisite),Ideal fluid flow past a flat plate,Use Weiner-Hopf method to solve integral-differential equation
+,Liouville's theorem,Skills (Prerequisite),Skills (Taught),Heat flow,Skills (Prerequisite)
+,Extension of Liouville's theorem,,Verify orthogonal relation,Electrostatics,
+,Analytic continuation,,Derive recurrence relation,Keywords (Prerequisite),
+,Branch cut,,Skills (Prerequisite),Simply-connected,
+,Multi-valued function,,Leibniz rule,Skills (Taught),
+,Discontinuity,,Integrate by parts,Invert conformal mapping,
+,Pole,,Taylor expansion,Solve Laplace equation with conformal mapping,
+,Principle value integral,,,Skills (Prerequisite),
+,Singularity// Singular point,,,,
+,Keywords (Prerequisite),,,,
+,Skills (Taught),,,,
+,Compute residue,,,,
+,Solve contour integral,,,,
+,Branch cut,,,,
+,Solve integral with multi-valued functions,,,,
+,Skills (Prerequisite),,,,

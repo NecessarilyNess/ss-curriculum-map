@@ -1,20 +1,20 @@
 ﻿Module Information,Section 1,Section 2,Section 3,Section 4,Section 5
 Fluid Dynamics 1,Fundamtals of Fluid Dynamics,Navier-Stokes Equations,Exact Solutions of the Navier-Stokes equations,Inviscid Incompressible Flows,Method of Conformal Mapping
-MATH60001,Continuum hypothesis,Control volume,Refined pressure,Keywords (Prerequisite),Keywords (Prerequisite)
-3,Continuum mechanics,Mass flux,Unidirectional flows,Skills (Taught),Skills (Taught)
-1,Fluid,Continuity equation 0,Couette flow,Skills (Prerequisite),Skills (Prerequisite)
-5,Microscopic view of fluid motion,Incompressibility,Velocity profile,,
-,Intermolecular force,Newton's third law,Drag,,
-,Molecular dynamics,Newton's second law,Poiseuille flow// Plane Poiseuille flow,,
-,Kinetic theory,Material volume,Maximum velocity,,
-,Mean free path,Fluid body,Laminar state/ laminar flow,,
-,Macroscopic view of fluid motion,Reynolds Transport Theorem,Hagen-Poiseuille flow,,
-,Characteristic length scale,Integral form of the momentum equation,Cylindrical polar coordinates,,
-,Fluid particle,Differential form of the momentum equation,Axisymmetry,,
-,Knudsen number,Momentum equation,Regularity,,
-,Density,Kinematic viscosity,Volumetric flow rate,,
-,Velocity 0,Navier-Stokes Equations,Average flow rate,,
-,Coarse-graining,Viscous diffusion,Stability,,
+MATH60001,Continuum hypothesis,Control volume,Refined pressure,Keywords (Prerequisite),Linear mapping
+3,Continuum mechanics,Mass flux,Unidirectional flows,Skills (Taught),Circle property
+1,Fluid,Continuity equation 0,Couette flow,Skills (Prerequisite),Conformality
+5,Microscopic view of fluid motion,Incompressibility,Velocity profile,,Power function mapping
+,Intermolecular force,Newton's third law,Drag,,Linear fractional transformation// Bilinear transformation// Mobius transformation
+,Molecular dynamics,Newton's second law,Poiseuille flow// Plane Poiseuille flow,,Complex infinity
+,Kinetic theory,Material volume,Maximum velocity,,Laplace's equation
+,Mean free path,Fluid body,Laminar state/ laminar flow,,Ideal flow past a circular cylinder with angle of attack
+,Macroscopic view of fluid motion,Reynolds Transport Theorem,Hagen-Poiseuille flow,,Joukovskii transformation
+,Characteristic length scale,Integral form of the momentum equation,Cylindrical polar coordinates,,Ideal flow past a flat plate
+,Fluid particle,Differential form of the momentum equation,Axisymmetry,,Joukovskii-Kutta condition
+,Knudsen number,Momentum equation,Regularity,,Joukovskii aerofoil
+,Density,Kinematic viscosity,Volumetric flow rate,,Keywords (Prerequisite)
+,Velocity 0,Navier-Stokes Equations,Average flow rate,,Skills (Taught)
+,Coarse-graining,Viscous diffusion,Stability,,Skills (Prerequisite)
 ,Body force,Vorticity equation,Laminar-turbulent transition,,
 ,Surface force,Non-dimensionalisation,Flow between two coaxial cylinders// Taylor-Couette flow,,
 ,Body force per unit mass,Strouhal number,Taylor number,,
@@ -35,19 +35,20 @@ MATH60001,Continuum hypothesis,Control volume,Refined pressure,Keywords (Prerequ
 ,Lagrangian description// Lagrangian approach// Lagrangian framework,Conservation of mass,Asymptotic equivalence,,
 ,Eulerian description// Eulerian approach// Eulerian framework ,Leibniz integral rule,Gaussian integral,,
 ,Acceleration 0,Divergence theorem,Skills (Taught),,
-,Material derivative// full derivative,Momentum,Finding self-similar solutions,,
-,local derivative// tendency term,Inertial coordinate system// Inertial frame,Dimensional analysis,,
-,Convective acceleration// advection term// non-linear term// inertial term,Centre of mass// mass centre,Skills (Prerequisite),,
-,Steady flow,Jacobian,Solving second order linear ODEs,,
-,Streamline,Divergence theorem,,,
-,Pathline/trajectory,Laplacian,,,
-,Streakline,Stokes flow,,,
-,Streamline tube,Inertia,,,
-,Vorticity,Skills (Taught),,,
-,Vorticity flux,Non-dimensionalisation,,,
-,Helmholtz' First Theorem,Skills (Prerequisite),,,
-,Intensity 0,Transformation of variables,,,
-,Rate of Strain tensor,Finding the normal to a surface,,,
+,Continuity equation 0,Momentum,Finding self-similar solutions,,
+,Material derivative// full derivative,Inertial coordinate system// Inertial frame,Dimensional analysis,,
+,local derivative// tendency term,Centre of mass// mass centre,Skills (Prerequisite),,
+,Convective acceleration// advection term// non-linear term// inertial term,Jacobian,Solving second order linear ODEs,,
+,Steady flow,Divergence theorem,,,
+,Streamline,Laplacian,,,
+,Pathline/trajectory,Stokes flow,,,
+,Streakline,Inertia,,,
+,Streamline tube,Skills (Taught),,,
+,Vorticity,Non-dimensionalisation,,,
+,Vorticity flux,Skills (Prerequisite),,,
+,Helmholtz' First Theorem,Transformation of variables,,,
+,Intensity 0,Finding the normal to a surface,,,
+,Rate of Strain tensor,,,,
 ,Local relative motion,,,,
 ,Deformational motion,,,,
 ,Material line,,,,
@@ -88,7 +89,6 @@ MATH60001,Continuum hypothesis,Control volume,Refined pressure,Keywords (Prerequ
 ,Identifying and neglecting small terms,,,,
 ,Multivariable Taylor Expansion,,,,
 ,Transforming coordinate systems,,,,
-,,,,,
 ,,,,,
 ,,,,,
 ,,,,,
