@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 
+
 with open('./module_dict.json', 'r') as openfile:
     # Reading from json file
     all_modules = json.load(openfile)
@@ -38,6 +39,11 @@ def whitespace_cleaner(term):
     '''
     return(" ".join((term.lower()).split()))
 
+def close_quote_cleaner(term_list):
+    if "\u2019" in term_list[0]:
+        new_term = [term_list[0].replace("\u2019", "'")]
+        return new_term
+    return term_list
 ############################################
 
 def dict_maker(module_csv_path, all_modules):

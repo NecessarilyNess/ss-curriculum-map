@@ -58,14 +58,14 @@ def is_repeated(module_dict, keyword, index):
         Either: section_number (str): Section the keyword/skill is in
         False (bool): False (the term is not in the list)
     '''
-    keyword = whitespace_cleaner(keyword)
+    keyword = whitespace_cleaner(close_quote_cleaner(keyword))
     num_of_sections = int(module_dict['module information'][4][0])
 
     for i in range(1,num_of_sections+1):
         # Specify which of the lists to search in
         where_to_look = module_dict['section_'+str(i)][index]
         for j in range(len(where_to_look)):
-            if keyword in where_to_look[j]:
+            if keyword in close_quote_cleaner(where_to_look[j]):
                 return 'section_'+str(i)
     return False
 
