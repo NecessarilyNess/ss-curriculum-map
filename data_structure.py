@@ -40,9 +40,10 @@ def whitespace_cleaner(term):
     return(" ".join((term.lower()).split()))
 
 def close_quote_cleaner(term_list):
-    if "\u2019" in term_list[0]:
-        new_term = [term_list[0].replace("\u2019", "'")]
-        return new_term
+    for i in range(len(term_list)):
+        if "\u2019" in term_list[i]:
+            term_list[i] = term_list[i].replace("\u2019", "'")
+            return term_list
     return term_list
 ############################################
 

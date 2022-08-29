@@ -119,8 +119,7 @@ def remove_duplicate(pairs):
     for i in range(len(pairs)):
         if pairs.count(pairs[i]) != 1:
             pairs[i] = 'dup'
-    pairs.remove('dup')
-    pairs = [list(pair) for pair in pairs]
+    pairs = [list(pair) for pair in pairs if pair != 'dup']
     return pairs
 
 def code_to_name(all_modules, code):
