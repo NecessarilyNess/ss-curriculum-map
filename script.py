@@ -5,7 +5,7 @@ import os
 
 # Get a list of the csv files that are in the folder
 module_csv = os.listdir('/Users/vanessamadu/Documents/StudentShapers/StudentShapers_code/module_csv_files')
-arr.remove('.DS_Store')
+module_csv.remove('.DS_Store')
 
 # Add all modules into the json file
 
@@ -27,4 +27,9 @@ def which_info(all_modules, index1, index2, repeat_or_cluster, min_val):
     
     data_to_excel(all_modules, info_array)
     pairs = pair_finder(all_modules,info_array, min_val)
-    results(pairs, index1, index2)
+
+    if repeat_or_cluster == 1:
+        results(pairs, index1, index2)
+    elif repeat_or_cluster == 2: 
+        clustering_results(pairs, index1, index2)
+    

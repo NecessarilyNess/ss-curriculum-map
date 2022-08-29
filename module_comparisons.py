@@ -80,6 +80,38 @@ def results(pairs, index1, index2):
             module1 = pairs[i][0]
             module2 = pairs[i][1]
             print(' '.join([code_to_name(all_modules, module1)] + ["may have the same 'prerequisites' as"] + [code_to_name(all_modules, module2)]))
+    elif index1 == 2 and index2 == 1:
+        for i in range(len(pairs)):
+            module1 = pairs[i][0]
+            module2 = pairs[i][1]
+            print(' '.join([code_to_name(all_modules, module2)] + ['may be a good module to take for'] + [code_to_name(all_modules,module1)]))
+
+
+def clustering_results(pairs, index1, index2):
+    if index1 ==1 and index2==1:
+        pairs = remove_duplicate(pairs)
+        for i in range(len(pairs)):
+            module1 = pairs[i][0]
+            module2 = pairs[i][1]
+            print(' '.join(['The similarity in'] + [code_to_name(all_modules, module1)] + ['and'] + [code_to_name(all_modules, module2)] + ['is highly clustered in'] + [code_to_name(all_modules, module2)] ))
+    elif index1 == 1 and index2 == 2:
+        for i in range(len(pairs)):
+            module1 = pairs[i][0]
+            module2 = pairs[i][1]
+            print(' '.join(['The prerequisites for'] + [code_to_name(all_modules, module2)] + ['found in'] + [code_to_name(all_modules, module1)] + ['are highly clustered in'] + [code_to_name(all_modules, module2)] ))
+    elif index1 == 2 and index2 == 2:
+        pairs = remove_duplicate(pairs)
+        for i in range(len(pairs)):
+            module1 = pairs[i][0]
+            module2 = pairs[i][1]
+            print(' '.join(['The required keyword similarity in'] +[code_to_name(all_modules, module1)] + ['and'] + [code_to_name(all_modules, module2)] + ['is highly clustered in'] + [code_to_name(all_modules, module2)] ))
+    elif index1 == 2 and index2 == 1:
+            for i in range(len(pairs)):
+                module1 = pairs[i][0]
+                module2 = pairs[i][1]
+                print(' '.join(['The prerequisites for'] + [code_to_name(all_modules, module1)] + ['found in'] + [code_to_name(all_modules, module2)] + ['are highly clustered in'] + [code_to_name(all_modules, module2)] ))
+
+
 
 def remove_duplicate(pairs):
     for i in range(len(pairs)):
@@ -109,6 +141,7 @@ def repeat_similarity(all_modules, index1, index2, info_index):
             (1,1): Compares taught keywords 
             (2,2): Compares required keywords
             (1,2): Compares taught keywords in module 1 with required keywords in module 2.
+            (2,1): Compares required keywords in module 1 with taught keywords in module 2.
         info_index (int): Selects the desired comparison metric from the following options
             0: Number of repeated keywords (normalised wrt largest value)
             1: Number of repeated keywords/number of chapters spread across (normalised wrt largest value)
@@ -164,6 +197,7 @@ def clustering_score(all_modules, index1, index2):
             (1,1): Compares taught keywords 
             (2,2): Compares required keywords
             (1,2): Compares taught keywords in module 1 with required keywords in module 2.
+            (2,1): Compares required keywords in module 1 with taught keywords in module 2.
     Returns:
         clustering_matrix (array): Array of relative scores of 'clustering'
     '''
