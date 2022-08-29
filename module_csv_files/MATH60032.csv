@@ -1,0 +1,31 @@
+Module Information,Section 1,Section 2,Section 3,Section 4,Section 5,Section 6,Section 7
+Geometry of curves and surfaces,Regular curve,Surfaces in R^3,Curvatures of a surface ,Theorema Egregium ,Area of a surface ,Geodesic ,Gauss-Bonnet 
+MATH60032,Parametrised curve,Local parametrisation// Chart,Second fundamental form,First fundamental form// metric ,Orientation preserving,Geodesic curvature,Local version of Gauss-Bonnet
+3,Tangent line,Tangent vector,Symmetric bilinear form,Local isometry,Keywords (Prerequisite),Variation of the curve,Interior point
+2,Regular curve,Stereographic projection,Spectral theorem,Isometry,Skills (Taught),Keywords (Prerequisite),Boundary point
+7,Regular map,Gradient,Principle direction,Christoffel symbol,Skills (Prerequisite),Skills (Taught),Gauss-Bonnet for triangles
+,Reparametrisation,Regular level set,Principle curvature,Surfaces of constant Gaussian curvature,,Skills (Prerequisite),Curvilinear triangle
+,Curve length,Inverse function theorem,Normal curvature,Keywords (Prerequisite),,,Vertex
+,Arc-length parametrisation,Diffeomorphism,Umbilical,Partial derivative,,,Edge
+,Curvature,Jacobian,Gaussian curvature,Skills (Taught),,,Exterior angle
+,Curvature vector,Tangent plane,Mean curvature,Skills (Prerequisite),,,Interior angle
+,Unit tangent vector,Smooth maps on surfaces,"Elliptic, hyperbolic, and parabolic points",,,,Triangular version of Gauss-Bonnet
+,Principle normal vector,Differential of a smooth map,Keywords (Prerequisite),,,,Triangulation of surfaces
+,Binormal vector,Normal vector,Diagonalisable matrix,,,,Euler characteristic
+,Positively oriented orthonormal bases,Gauss map,Connected,,,,"Classicification of compact, connected, orientable surfaces"
+,Frenet frame,Orientable,Trace of a matrix,,,,Applications of Gauss-Bonnet Theorem
+,Torsion of a curve,Keywords (Prerequisite),Taylor series,,,,Keywords (Prerequisite)
+,Planar curve,Homeomorphism,Skills (Taught),,,,Green’s integral formula
+,Frenet equations,Linearly independent,Skills (Prerequisite),,,,Jordan curve Theorem
+,Signed curvature,Linear map,,,,,Skills (Taught)
+,Winding number,Orthogonal complement,,,,,Skills (Prerequisite)
+,Winding number// Index// Turning number,Span,,,,,Change of basis
+,Keywords (Prerequisite),Skills (Taught),,,,,
+,Smooth function ,Skills (Prerequisite),,,,,
+,Composition of two maps,,,,,,
+,Chain rule for derivitives,,,,,,
+,Orthogonal vector,,,,,,
+,Rigid motion,,,,,,
+,Skills (Taught),,,,,,
+,Skills (Prerequisite),,,,,,
+,Differential equations in the matrix form,,,,,,

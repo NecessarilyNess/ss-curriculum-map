@@ -1,0 +1,27 @@
+Module Information,Section 1,Section 2,Section 3,Section 4,Section 5,Section 6,Section 7,Section 8,Section 9,Section 10,Section 11,Section 12,Section 13,Section 14,Section 15
+Algebraic curves,Affine plane curves,Complex curves and the Nullstellensatz,Projective space,Projective plane curve and comparison to affine,Smoothness and singularities,Projective transformation,Conic,Resultants and weak Bezout,"Multiplicities and strong Bezout","Axiomatic characterization of intersection multiplicities",Cubic curve,Linear system 0,Riemann surface,"Morphisms of Riemann surfaces and ramification",The degree-genus formula
+MATH60033,Reducible polynomial,Fundamental theorem of algebra,Homogeneous coordinates,Point at infinity,Cusp,Mobius transformation,Degenerate,Pascal’s mystic hexagon,Multiplicity of polynomial,Intersect transversally,Legendre equation 0,Collinear points,Transition function,Meromorphic function,Triangulation
+3,Factorization of polynomial,Consequence of Hilbert’s Nullstellensatz,Complex projective space,Projective Nullstellensatz,Euler’s relation,Keywords (Prerequisite),Non-degenerate,Keywords (Prerequisite),Projective fundamental theorem of algebra,Projective tangent line,Inflection point 0// flex point,Divisor 1,Chart,The order of holomorphic function,Orientability
+1,Repeated factor,Degree of an affine plane curve,Projective line,Irreducible projective plane curve ,Singular point 0,Skills (Taught),Smooth conic,Skills (Taught),Intersection multiplicity,Keywords (Prerequisite),Hessian matrix,Effictive divisor,Atlas,Removable singularity,Compatible orientation
+15,Rational points on an algebraic curve,Keywords (Prerequisite),Projection map,Homogenization of the polynomial ,Keywords (Prerequisite),Skills (Prerequisite),Keywords (Prerequisite),Skills (Prerequisite),Keywords (Prerequisite),Skills (Taught),Hessian curve,Reduced divisor,Compatible,Essential singularity,Mobius strip
+,Keywords (Prerequisite),Skills (Taught),Quotient topology,Projectivization,Leibniz rule for partial derivative,,Skills (Taught),,Taylor expansion,Skills (Prerequisite),Keywords (Prerequisite),Support of the divisor,Complex structure,Pole,Euler characteristic
+,Unique factorization domain,Skills (Prerequisite),Keywords (Prerequisite),Asymptotes of the curve,Skills (Taught),,Skills (Prerequisite),,Skills (Taught),,Second order derivative,Degree of a divisor,Topological surface,Maximal domain of definition,Euler’s theorem 1
+,Skills (Taught),,Equivalence relation,Keywords (Prerequisite),Skills (Prerequisite),,,,Computation of intersection multiplicity,,Skills (Taught),Complete linear system of degree d,Holomorphic function,Identity theorem for Riemann surface,Tori
+,Multi-index notation,,Homeomorphism,Skills (Taught),,,,,Skills (Prerequisite),,Skills (Prerequisite),Linear system of degree d,Local property,Order of the pole,Connected sum
+,Skills (Prerequisite),,Compact,Skills (Prerequisite),,,,,,,,Projective duality,Zeros of a holomorphic function,Rational function,Real projective plane
+,,,Hausdorff,,,,,,,,,Dual projective plane,Isolated zeros,Accumulation point,Classification of non-orientable surfaces
+,,,Skills (Taught),,,,,,,,,Pencil of projective plane curve,Riemann sphere,Branch point 0,Riemann-Hurwitz formula
+,,,Skills (Prerequisite),,,,,,,,,Cayley–Bacharach theorem,Biholomorphic,Ramification degree,Keywords (Prerequisite)
+,,,,,,,,,,,,Keywords (Prerequisite),Complex tori,Degree of morphism,Skills (Taught)
+,,,,,,,,,,,,Skills (Taught),Lattice,Fiber,Skills (Prerequisite)
+,,,,,,,,,,,,Skills (Prerequisite),Two torus,Order of vanishing,
+,,,,,,,,,,,,,Complex implicit function theorem,Keywords (Prerequisite),
+,,,,,,,,,,,,,Morphism,Hausdorff,
+,,,,,,,,,,,,,Inclusion map,Skills (Taught),
+,,,,,,,,,,,,,Complex tori,Skills (Prerequisite),
+,,,,,,,,,,,,,Keywords (Prerequisite),,
+,,,,,,,,,,,,,Disjoint union,,
+,,,,,,,,,,,,,Isomorphism,,
+,,,,,,,,,,,,,Stereographic projection,,
+,,,,,,,,,,,,,Skills (Taught),,
+,,,,,,,,,,,,,Skills (Prerequisite),,
