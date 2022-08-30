@@ -72,5 +72,3 @@ def skill_importance(module_dict, index):
         else:
             skills[skill[0]]=1
     return skills
-
-        

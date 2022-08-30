@@ -316,9 +316,3 @@ def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_v
             clustering_results(all_modules, pairs, index1, index2)
         else:
             weak_clustering_results(all_modules, pairs, index1, index2)
-
-
-
-
-
-
