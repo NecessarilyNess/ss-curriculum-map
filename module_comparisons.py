@@ -151,6 +151,27 @@ def pair_finder(all_modules,info_array, min_val):
                 pairs.append([module_codes[i],module_codes[j]])
     return pairs
 
+def weakly_similar_pair_finder(all_modules,info_array, min_val, max_val):
+    '''
+    Look for all the module pairs that have a similarity score greater than min_val but less than max_val
+    Parameters: 
+        all_modules (dict): Dictionary containing all modules
+        info_array (array): Either array containing normalised number of keywords or array containing
+                            the normalised clustering score.
+        min_val (float): Threshold lower value for two modules to be considered weakly similar
+        max_val (float): Threshold upper value for two modules to be considered weakly similar
+    Returns: 
+        pairs (list): List of module pairs with similarity score above threshold.
+    '''
+    pairs = []
+    module_codes = list(all_modules.key())
+    length = len(info_array)
+    for i in range(length):
+        for j in range(length):
+            if info_array[i][j] > min_val and info_array[i][j] < max_val:
+                pairs.append([module_codes[i],module_codes[j]])
+    return pairs
+
 ## PRINT USEFUL INFORMATION
 def keyword_repeat_results(all_modules, pairs, index1, index2):
     '''
