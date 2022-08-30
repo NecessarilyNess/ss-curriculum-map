@@ -1,3 +1,5 @@
 Module tracker.xlsx
 .DS_Store
 __pycache__
+my_scripts.py
+test.xlsx
