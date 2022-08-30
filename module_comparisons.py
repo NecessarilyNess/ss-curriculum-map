@@ -131,14 +131,17 @@ def clustering_score(all_modules, index1, index2):
     return(clustering_matrix)
 
 ## IDENTIFY MODULES WITH SIMILARITY ABOVE THRESHOLD
-def pair_finder(all_modules,info_array, min_val):
+
+def pair_finder(all_modules,info_array, min_val, max_val=1):
     '''
-    Look for all the module pairs that have a similarity score greater than min_val
+    Look for all the module pairs that have a similarity score greater than min_val but less than max_val
     Parameters: 
         all_modules (dict): Dictionary containing all modules
         info_array (array): Either array containing normalised number of keywords or array containing
                             the normalised clustering score.
-        min_val (float): Threshold value for two modules to be considered similar.
+        min_val (float): Threshold lower value for two modules to be considered similar
+        max_val (float): Threshold upper value for two modules to be considered weakly similar
+        **max_val is only worth using if looking for small amounts over overlap between modules**
     Returns: 
         pairs (list): List of module pairs with similarity score above threshold.
     '''
@@ -147,28 +150,7 @@ def pair_finder(all_modules,info_array, min_val):
     length = len(info_array)
     for i in range(length):
         for j in range(length):
-            if info_array[i][j] > min_val:
-                pairs.append([module_codes[i],module_codes[j]])
-    return pairs
-
-def weakly_similar_pair_finder(all_modules,info_array, min_val, max_val):
-    '''
-    Look for all the module pairs that have a similarity score greater than min_val but less than max_val
-    Parameters: 
-        all_modules (dict): Dictionary containing all modules
-        info_array (array): Either array containing normalised number of keywords or array containing
-                            the normalised clustering score.
-        min_val (float): Threshold lower value for two modules to be considered weakly similar
-        max_val (float): Threshold upper value for two modules to be considered weakly similar
-    Returns: 
-        pairs (list): List of module pairs with similarity score above threshold.
-    '''
-    pairs = []
-    module_codes = list(all_modules.key())
-    length = len(info_array)
-    for i in range(length):
-        for j in range(length):
-            if info_array[i][j] > min_val and info_array[i][j] < max_val:
+            if info_array[i][j] >= min_val and info_array[i][j] <= max_val:
                 pairs.append([module_codes[i],module_codes[j]])
     return pairs
 
@@ -178,6 +160,7 @@ def keyword_repeat_results(all_modules, pairs, index1, index2):
     Prints the results for pairs of modules that exceed the similarity score threshold, stating exactly how
     **This only tells us about repeated keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
     that were used to generate the info array.**
+    **THIS FUNCTION IS MEANT TO BE USED ONLY WHEN MAX_VAL == 1 IS AN ARGUMENT FOR THE PAIR_FINDER FUNCTION**
     Parameters:
         all_modules (dict): Dictionary containing all modules
         pairs (list): List of module pairs that exceed similarity score threshold
@@ -188,34 +171,58 @@ def keyword_repeat_results(all_modules, pairs, index1, index2):
             (1,2): Compares taught keywords in module 1 with required keywords in module 2.
             (2,1): Compares required keywords in module 1 with taught keywords in module 2.
     '''
-    if index1 ==1 and index2==1:
+    if index1 == index2:
         pairs = remove_duplicate(pairs)
-        for i in range(len(pairs)):
-            module1 = pairs[i][0]
-            module2 = pairs[i][1]
+    for i in range(len(pairs)):
+        module1 = pairs[i][0]
+        module2 = pairs[i][1]
+
+        if index1 ==1 and index2==1:
             print(' '.join([code_to_name(all_modules, module1)] + ['may be similar to'] + [code_to_name(all_modules, module2)]))
-    elif index1 == 1 and index2 == 2:
-        for i in range(len(pairs)):
-            module1 = pairs[i][0]
-            module2 = pairs[i][1]
+        elif index1 == 1 and index2 == 2:
             print(' '.join([code_to_name(all_modules, module1)] + ['may be a good module to take for'] + [code_to_name(all_modules,module2)]))
-    elif index1 == 2 and index2 == 2:
-        pairs = remove_duplicate(pairs)
-        for i in range(len(pairs)):
-            module1 = pairs[i][0]
-            module2 = pairs[i][1]
+        elif index1 == 2 and index2 == 2:
             print(' '.join([code_to_name(all_modules, module1)] + ["may have the same 'prerequisites' as"] + [code_to_name(all_modules, module2)]))
-    elif index1 == 2 and index2 == 1:
-        for i in range(len(pairs)):
-            module1 = pairs[i][0]
-            module2 = pairs[i][1]
+        elif index1 == 2 and index2 == 1:
             print(' '.join([code_to_name(all_modules, module2)] + ['may be a good module to take for'] + [code_to_name(all_modules,module1)]))
+
+def weak_keyword_repeat_results(all_modules, pairs, index1, index2):
+    '''
+    Prints the results for pairs of modules that exceed the similarity score threshold, stating exactly how
+    **This only tells us about repeated keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
+    that were used to generate the info array.**
+    **THIS FUNCTION IS MEANT TO BE USED ONLY WHEN MAX_VAL != 1 IS AN ARGUMENT FOR THE PAIR_FINDER FUNCTION**
+    Parameters:
+        all_modules (dict): Dictionary containing all modules
+        pairs (list): List of module pairs that exceed similarity score threshold
+        index1 (int): Takes the values 1 or 2
+        index2 (int): Takes the values 1 or 2
+            (1,1): Compares taught keywords 
+            (2,2): Compares required keywords
+            (1,2): Compares taught keywords in module 1 with required keywords in module 2.
+            (2,1): Compares required keywords in module 1 with taught keywords in module 2.
+    '''
+    if index1 == index2:
+        pairs = remove_duplicate(pairs)
+    for i in range(len(pairs)):
+        module1 = pairs[i][0]
+        module2 = pairs[i][1]
+        
+        if index1 ==1 and index2==1:
+            print(' '.join([code_to_name(all_modules, module1)] + ['may have a small amount of similarity to'] + [code_to_name(all_modules, module2)]))
+        elif index1 == 1 and index2 == 2:
+            print(' '.join([code_to_name(all_modules, module1)] + ['may be have a small number of useful concepts for'] + [code_to_name(all_modules,module2)]))
+        elif index1 == 2 and index2 == 2:
+                print(' '.join([code_to_name(all_modules, module1)] + ["may have a small number of the same 'prerequisites' as"] + [code_to_name(all_modules, module2)]))
+        elif index1 == 2 and index2 == 1:
+                print(' '.join([code_to_name(all_modules, module2)] + ['may be have a small number of useful concepts for'] + [code_to_name(all_modules,module1)]))
 
 def clustering_results(all_modules, pairs, index1, index2):
     '''
     Prints the results for pairs of modules that exceed the clustering similarity score threshold, stating exactly how
     **This only tells us about clustering of keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
     that were used to generate the info array.**
+    **THIS FUNCTION IS MEANT TO BE USED ONLY WHEN MAX_VAL == 1 IS AN ARGUMENT FOR THE PAIR_FINDER FUNCTION**
     Parameters:
         all_modules (dict): Dictionary containing all modules
         pairs (list): List of module pairs that exceed similarity score threshold
@@ -226,32 +233,55 @@ def clustering_results(all_modules, pairs, index1, index2):
             (1,2): Compares taught keywords in module 1 with required keywords in module 2.
             (2,1): Compares required keywords in module 1 with taught keywords in module 2.
     '''
-    if index1 ==1 and index2==1:
+    if index1 == index2:
         pairs = remove_duplicate(pairs)
-        for i in range(len(pairs)):
-            module1 = pairs[i][0]
-            module2 = pairs[i][1]
+    for i in range(len(pairs)):
+        module1 = pairs[i][0]
+        module2 = pairs[i][1]
+
+        if index1 ==1 and index2==1:
             print(' '.join(['The similarity in'] + [code_to_name(all_modules, module1)] + ['and'] + [code_to_name(all_modules, module2)] + ['is highly clustered in'] + [code_to_name(all_modules, module2)] ))
-    elif index1 == 1 and index2 == 2:
-        for i in range(len(pairs)):
-            module1 = pairs[i][0]
-            module2 = pairs[i][1]
+        elif index1 == 1 and index2 == 2:
             print(' '.join(['The prerequisites for'] + [code_to_name(all_modules, module2)] + ['found in'] + [code_to_name(all_modules, module1)] + ['are highly clustered in'] + [code_to_name(all_modules, module2)] ))
-    elif index1 == 2 and index2 == 2:
-        pairs = remove_duplicate(pairs)
-        for i in range(len(pairs)):
-            module1 = pairs[i][0]
-            module2 = pairs[i][1]
+        elif index1 == 2 and index2 == 2:
             print(' '.join(['The required keyword similarity in'] +[code_to_name(all_modules, module1)] + ['and'] + [code_to_name(all_modules, module2)] + ['is highly clustered in'] + [code_to_name(all_modules, module2)] ))
-    elif index1 == 2 and index2 == 1:
-            for i in range(len(pairs)):
-                module1 = pairs[i][0]
-                module2 = pairs[i][1]
-                print(' '.join(['The prerequisites for'] + [code_to_name(all_modules, module1)] + ['found in'] + [code_to_name(all_modules, module2)] + ['are highly clustered in'] + [code_to_name(all_modules, module2)] ))
+        elif index1 == 2 and index2 == 1:
+            print(' '.join(['The prerequisites for'] + [code_to_name(all_modules, module1)] + ['found in'] + [code_to_name(all_modules, module2)] + ['are highly clustered in'] + [code_to_name(all_modules, module2)] ))
+
+def weak_clustering_results(all_modules, pairs, index1, index2):
+    '''
+    Prints the results for pairs of modules that exceed the clustering similarity score threshold, stating exactly how
+    **This only tells us about clustering of keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
+    that were used to generate the info array.**
+    **THIS FUNCTION IS MEANT TO BE USED ONLY WHEN MAX_VAL != 1 IS AN ARGUMENT FOR THE PAIR_FINDER FUNCTION**
+    Parameters:
+        all_modules (dict): Dictionary containing all modules
+        pairs (list): List of module pairs that exceed similarity score threshold
+        index1 (int): Takes the values 1 or 2
+        index2 (int): Takes the values 1 or 2
+            (1,1): Compares taught keywords 
+            (2,2): Compares required keywords
+            (1,2): Compares taught keywords in module 1 with required keywords in module 2.
+            (2,1): Compares required keywords in module 1 with taught keywords in module 2.
+    '''
+    if index1 == index2:
+        pairs = remove_duplicate(pairs)
+    for i in range(len(pairs)):
+        module1 = pairs[i][0]
+        module2 = pairs[i][1]
+
+        if index1 ==1 and index2==1:
+            print(' '.join(['The similarity in'] + [code_to_name(all_modules, module1)] + ['and'] + [code_to_name(all_modules, module2)] + ['is weakly clustered in'] + [code_to_name(all_modules, module2)] ))
+        elif index1 == 1 and index2 == 2:
+            print(' '.join(['The prerequisites for'] + [code_to_name(all_modules, module2)] + ['found in'] + [code_to_name(all_modules, module1)] + ['are weakly clustered in'] + [code_to_name(all_modules, module2)] ))
+        elif index1 == 2 and index2 == 2:
+            print(' '.join(['The required keyword similarity in'] +[code_to_name(all_modules, module1)] + ['and'] + [code_to_name(all_modules, module2)] + ['is weakly clustered in'] + [code_to_name(all_modules, module2)] ))
+        elif index1 == 2 and index2 == 1:
+            print(' '.join(['The prerequisites for'] + [code_to_name(all_modules, module1)] + ['found in'] + [code_to_name(all_modules, module2)] + ['are weakly clustered in'] + [code_to_name(all_modules, module2)] ))
 
 ############################### COMPARE ALL MODULES TO EACH OTHER #########################################
 
-def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val):
+def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val, max_val=1):
     '''
     Compares desired keywords across all modules for similarity, prints the modules that have a score above
     the threshold and exports all the scores into a excel file.
@@ -267,6 +297,8 @@ def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_v
             1: Return results for repeated keywords
             2: Return results for clustering of repeated keywords
         min_val (float): Threshold value for two modules to be considered similar.
+        max_val (float): Threshold upper value for two modules to be considered weakly similar
+        **max_val is only worth using if looking for small amounts over overlap between modules**
     '''
     if repeat_or_cluster == 1:
         info_array = repeat_similarity(all_modules, index1, index2, 0)
@@ -274,12 +306,22 @@ def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_v
         info_array = clustering_score(all_modules, index1, index2)
     
     data_to_excel(all_modules, info_array)
-    pairs = pair_finder(all_modules,info_array, min_val)
+    if max_val != 1:
+        pairs = pair_finder(all_modules,info_array, min_val, max_val)
+    else:
+        pairs = pair_finder(all_modules,info_array, min_val)
 
     if repeat_or_cluster == 1:
-        keyword_repeat_results(all_modules, pairs, index1, index2)
+        if max_val == 1:
+            keyword_repeat_results(all_modules, pairs, index1, index2)
+        else:
+            weak_keyword_repeat_results(all_modules, pairs, index1, index2)
+
     elif repeat_or_cluster == 2: 
-        clustering_results(all_modules, pairs, index1, index2)
+        if max_val ==1:
+            clustering_results(all_modules, pairs, index1, index2)
+        else:
+            weak_clustering_results(all_modules, pairs, index1, index2)
 
 
 
