@@ -11,7 +11,6 @@ def write_to_json(file_path, module_dict):
     with open(file_path, "w") as outfile:
         json.dump(module_dict, outfile)
 
-
 def multiple_names(string_list):
     '''
     Separates different names for the same idea. Expected syntax 'term// term'
@@ -34,7 +33,6 @@ def whitespace_cleaner(term):
     '''
     return(" ".join((term.lower()).split()))
 
-
 def close_quote_cleaner(term):
     '''
     Replaces the unicode character "\u2019" with "'" for terms in a list.
@@ -47,7 +45,6 @@ def close_quote_cleaner(term):
         term = term.replace("\u2019", "'")
         return term
     return term
-
 
 def normalise(array, factor):
     '''
