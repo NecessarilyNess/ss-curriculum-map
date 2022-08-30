@@ -1,26 +1,6 @@
 from module_dict_updates import *
 from helper_functions import *
-#Load all modules
-#with open('module_dict.json') as json_file:
-#    all_modules = json.load(json_file)
-
-'''
-I need functions that do the following
-- Extracts taught keywords from a module DONE
-- Extracts required keywords from a module DONE
-- Extracts taught skills DONE
-- Extracts required skills DONE
-- Returns which section a keyword/skill is from DONE
-- Is the keyword in the other list DONE
-- Keeps track and count of what is repeated DONE
-- Counting the number of skills DONE
-- Write a function that takes all the modules in the csv folder and loads them into the json file DONE
-- Look for all pairs that have a metric higher than some value. DONE
-- Get rid of '\u2019' DONE
-- Write a function for weakly similar
-- Generalise the paths
-- Rename some of the functions
-'''
+from module_dict_updates import *
 
 ## SEARCH FOR KEYWORDS IN A MODULE
 def module_keywords(module_dict, index):
