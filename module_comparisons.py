@@ -152,7 +152,7 @@ def pair_finder(all_modules,info_array, min_val):
     return pairs
 
 ## PRINT USEFUL INFORMATION
-def keyword_repeat_results(pairs, index1, index2):
+def keyword_repeat_results(all_modules, pairs, index1, index2):
     '''
     Prints the results for pairs of modules that exceed the similarity score threshold, stating exactly how
     **This only tells us about repeated keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
@@ -189,7 +189,7 @@ def keyword_repeat_results(pairs, index1, index2):
             module2 = pairs[i][1]
             print(' '.join([code_to_name(all_modules, module2)] + ['may be a good module to take for'] + [code_to_name(all_modules,module1)]))
 
-def clustering_results(pairs, index1, index2):
+def clustering_results(all_modules, pairs, index1, index2):
     '''
     Prints the results for pairs of modules that exceed the clustering similarity score threshold, stating exactly how
     **This only tells us about clustering of keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
@@ -254,9 +254,9 @@ def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_v
     pairs = pair_finder(all_modules,info_array, min_val)
 
     if repeat_or_cluster == 1:
-        keyword_repeat_results(pairs, index1, index2)
+        keyword_repeat_results(all_modules, pairs, index1, index2)
     elif repeat_or_cluster == 2: 
-        clustering_results(pairs, index1, index2)
+        clustering_results(all_modules, pairs, index1, index2)
 
 
 
