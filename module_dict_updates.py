@@ -2,14 +2,24 @@ import json
 import os
 from helper_functions import *
 
+def all_modules_dict(json_relative_path, module_file_directory_full_path):
+    # Load all the modules from json file
+    with open(json_path, 'r') as openfile:
+        all_modules = json.load(openfile)
 
-# Load all the modules from json file
-with open('./module_dict.json', 'r') as openfile:
-    all_modules = json.load(openfile)
+    # Get a list of the csv files that are in the folder
+    module_csv = os.listdir(module_file_directory_full_path)
+    module_csv.remove('.DS_Store')
 
-# Get a list of the csv files that are in the folder
-module_csv = os.listdir('/Users/vanessamadu/Documents/StudentShapers/StudentShapers_code/module_csv_files')
-module_csv.remove('.DS_Store')
+   
+    # Add all modules into the json file
+    for module in module_csv:
+        module_csv_path = 'module_csv_files/%s'%module
+        dict_maker(module_csv_path, all_modules)
+
+    return all_modules
+
+all_modules = all_modules_dict('./module_dict.json','/Users/vanessamadu/Documents/StudentShapers/StudentShapers_code/module_csv_files')
 
 # Function to add module to json_file
 def dict_maker(module_csv_path, all_modules):
@@ -103,9 +113,3 @@ def dict_maker(module_csv_path, all_modules):
     module_code = module_dict['module information'][1][0]
     all_modules[module_code] = module_dict
     write_to_json('./module_dict.json', all_modules)
-
-# Add all modules into the json file
-for module in module_csv:
-    module_csv_path = 'module_csv_files/%s'%module
-    dict_maker(module_csv_path, all_modules)
-
