@@ -158,6 +158,7 @@ def keyword_repeat_results(all_modules, pairs, index1, index2):
     **This only tells us about repeated keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
     that were used to generate the info array.**
     Parameters:
+        all_modules (dict): Dictionary containing all modules
         pairs (list): List of module pairs that exceed similarity score threshold
         index1 (int): Takes the values 1 or 2
         index2 (int): Takes the values 1 or 2
@@ -195,6 +196,7 @@ def clustering_results(all_modules, pairs, index1, index2):
     **This only tells us about clustering of keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
     that were used to generate the info array.**
     Parameters:
+        all_modules (dict): Dictionary containing all modules
         pairs (list): List of module pairs that exceed similarity score threshold
         index1 (int): Takes the values 1 or 2
         index2 (int): Takes the values 1 or 2
