@@ -140,7 +140,8 @@ def pair_finder(all_modules,info_array, min_val, max_val=1):
         info_array (array): Either array containing normalised number of keywords or array containing
                             the normalised clustering score.
         min_val (float): Threshold lower value for two modules to be considered similar
-        max_val (float): Threshold upper value for two modules to be considered weakly similar
+        max_val (float) (optional): Threshold upper value for two modules to be considered weakly similar.
+        Default value is 1. 
         **max_val is only worth using if looking for small amounts over overlap between modules**
     Returns: 
         pairs (list): List of module pairs with similarity score above threshold.
@@ -281,7 +282,7 @@ def weak_clustering_results(all_modules, pairs, index1, index2):
 
 ############################### COMPARE ALL MODULES TO EACH OTHER #########################################
 
-def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val, max_val=1):
+def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val, write_destination, max_val=1):
     '''
     Compares desired keywords across all modules for similarity, prints the modules that have a score above
     the threshold and exports all the scores into a excel file.
@@ -297,15 +298,18 @@ def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_v
             1: Return results for repeated keywords
             2: Return results for clustering of repeated keywords
         min_val (float): Threshold value for two modules to be considered similar.
-        max_val (float): Threshold upper value for two modules to be considered weakly similar
+        write_destination (str): Path to xslx file to write to
+        max_val (float) (optional): Threshold upper value for two modules to be considered weakly similar.
+        Default value is 1. 
         **max_val is only worth using if looking for small amounts over overlap between modules**
+        
     '''
     if repeat_or_cluster == 1:
         info_array = repeat_similarity(all_modules, index1, index2, 0)
     elif repeat_or_cluster == 2:
         info_array = clustering_score(all_modules, index1, index2)
     
-    data_to_excel(all_modules, info_array)
+    data_to_excel(all_modules, info_array, write_destination)
     if max_val != 1:
         pairs = pair_finder(all_modules,info_array, min_val, max_val)
     else:
