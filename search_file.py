@@ -1,8 +1,8 @@
-import json
-from data_structure import *
+from module_dict_updates import *
+from helper_functions import *
 #Load all modules
-with open('module_dict.json') as json_file:
-    all_modules = json.load(json_file)
+#with open('module_dict.json') as json_file:
+#    all_modules = json.load(json_file)
 
 '''
 I need functions that do the following
@@ -14,14 +14,16 @@ I need functions that do the following
 - Is the keyword in the other list DONE
 - Keeps track and count of what is repeated DONE
 - Counting the number of skills DONE
-- Write a function that takes all the modules in the csv folder and loads them into the json file
-- Look for all pairs that have a metric higher than some value.
+- Write a function that takes all the modules in the csv folder and loads them into the json file DONE
+- Look for all pairs that have a metric higher than some value. DONE
 - Get rid of '\u2019' DONE
 - Write a function for weakly similar
+- Generalise the paths
+- Rename some of the functions
 '''
-######################### EXTRACTION FUNCTIONS ##############################
 
-def keywords(module_dict, index):
+## SEARCH FOR KEYWORDS IN A MODULE
+def module_keywords(module_dict, index):
     '''
     Extracts all of the desired keywords/skills in a module where each 'keyword' is stored as a list.
     Parameters: 
@@ -41,9 +43,7 @@ def keywords(module_dict, index):
         keywords+=(module_dict['section_'+str(i)][index])
     return(keywords)
 
-###################### HELPER FUNCTIONS ########################
-
-def is_repeated(module_dict, keyword, index):
+def in_module(module_dict, keyword, index):
     '''
     Determines if a keyword/skill is in a module and if it is, returns where
     Parameters:
@@ -70,6 +70,8 @@ def is_repeated(module_dict, keyword, index):
                 return 'section_'+str(i)
     return False
 
+## SKILL INFORMATION
+
 def skill_importance(module_dict, index):
     '''
     Identifies the frequency with which skills appear in a module.
@@ -83,72 +85,12 @@ def skill_importance(module_dict, index):
         appears in
     '''
     skills = {}
-    skill_list = keywords(module_dict,index)
+    skill_list = module_keywords(module_dict,index)
     for skill in skill_list:
         if skill[0] in skills.keys():
             skills[skill[0]]+=1
         else:
             skills[skill[0]]=1
     return skills
-
-########################## THE BIG FUNCTIONS ###############################
-
-def is_there_overlap(module_dict1, module_dict2, index1, index2):
-    '''
-    Finds repeated keywords between two modules, given the choice of which types of keywords are compared.
-    Module 1 is being compared to module 2.
-    Parameters:
-        module_dict1 (dict): Module dictionary 1
-        module_dict2 (dict): Module dictionary 2
-        index1 (int): Chooses which class of keywords/skills to be considered from module 1.
-        index2 (int): Chooses which class of keywords/skills to be considered from module 2.
-            1: taught keywords
-            2: required keywords
-            3: taught skills
-            4: required skills
-    returns:
-        similarity_list (list): List of unnormalised similarity scores in the form 
-        similarity_list = [number of repeated keywords, repeated keywords/number of chapters repeated across, max number of repeated
-        keywords in any section, squared sum of number of repeated keywords in each chapter]
-    '''
-    keywords_input = keywords(module_dict1,index1)
-    repeat_counter = 0
-    repeated_sections = {}
-    repeated_keywords = []
-
-    for i in range(len(keywords_input)):
-        if len(keywords_input[i]) == 1:
-            keyword = keywords_input[i][0]
-            section = is_repeated(module_dict2,keyword,index2)
-            if type(section) == str:
-                if section in repeated_sections.keys():
-                    repeated_sections[section]+=1
-                else: 
-                    repeated_sections[section]=1
-                repeat_counter+=1
-                repeated_keywords.append(keyword)
-        else:
-            for j in range(len(keywords_input[i])):
-                keyword = keywords_input[i][j]
-                section = is_repeated(module_dict2,keyword,index2)
-                if type(section) == str:
-                    if section in repeated_sections.keys():
-                        repeated_sections[section]+=1
-                    else: 
-                        repeated_sections[section]=1
-                    repeat_counter+=1
-                    repeated_keywords.append(keyword)
-                    break
-    squared_sum = 0
-    for k in range(len(repeated_sections.values())):
-        squared_sum += list(repeated_sections.values())[k]**2
-
-    divided_repeats = 0
-    max_repeats = 0
-    if len(repeated_sections.keys()) != 0:
-        divided_repeats = repeat_counter/len(repeated_sections.keys())
-        max_repeats = max(repeated_sections.values())
-
-    return [repeat_counter, divided_repeats , max_repeats, squared_sum, repeated_sections, repeated_keywords]
 
         

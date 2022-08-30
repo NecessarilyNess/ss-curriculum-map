@@ -118,3 +118,16 @@ def code_to_name(all_modules, code):
     module = all_modules[code]
     module_name = module["module information"][0][0]
     return module_name
+
+def data_to_excel(all_modules, info_array):
+    '''
+    Writes chosen information into an excel spreadsheet
+    Parameters:
+        all_modules (dict): Dictionary containing all modules
+        info_array (array): Numerical metrics for each module
+    '''
+    module_codes = list(all_modules.keys())
+    df1 = pd.DataFrame(info_array,
+                    index=module_codes,
+                    columns=module_codes)
+    df1.to_excel(excel_writer = "/Users/vanessamadu/Documents/StudentShapers/StudentShapers_code/test.xlsx")
