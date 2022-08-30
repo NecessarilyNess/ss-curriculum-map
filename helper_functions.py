@@ -134,7 +134,19 @@ def data_to_excel(all_modules, info_array, write_destination):
     df1.to_excel(excel_writer = write_destination)
 
 def check_section(section, repeated_sections, repeated_keywords, repeat_counter,keyword):
-    
+    '''
+    Given that a keyword is in a section, returns appropriate changes to counting variables
+    Parameters:
+        section (str): The section a keyword is found in
+        repeated_sections (dict): Dictionary counting the number of times each repeated section contains a repeat.
+        repeated_keywords (list): List containing the keywords that have been repeated
+        repeat_counter (int): Number of repeated keywords
+        keyword (str): Keyword from a module
+    Returns:
+        repeated_sections (dict): same as input but with the dictionary counter value of section the keyword is from +1
+        repeated_keywords (list): same as input with keyword appended
+        repeat_counter (int): previous value +1
+    '''
     if section in repeated_sections.keys():
         repeated_sections[section]+=1
     else: 
