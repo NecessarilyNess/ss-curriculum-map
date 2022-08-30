@@ -11,11 +11,6 @@ with open('./module_dict.json', 'r') as openfile:
 module_csv = os.listdir('/Users/vanessamadu/Documents/StudentShapers/StudentShapers_code/module_csv_files')
 module_csv.remove('.DS_Store')
 
-# Add all modules into the json file
-for module in module_csv:
-    module_csv_path = 'module_csv_files/%s'%module
-    dict_maker(module_csv_path, all_modules)
-
 # Function to add module to json_file
 def dict_maker(module_csv_path, all_modules):
     '''
@@ -108,4 +103,9 @@ def dict_maker(module_csv_path, all_modules):
     module_code = module_dict['module information'][1][0]
     all_modules[module_code] = module_dict
     write_to_json('./module_dict.json', all_modules)
+
+# Add all modules into the json file
+for module in module_csv:
+    module_csv_path = 'module_csv_files/%s'%module
+    dict_maker(module_csv_path, all_modules)
 
