@@ -32,23 +32,13 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
             keyword = keywords_input[i][0]
             section = in_module(module_dict2,keyword,index2)
             if type(section) == str:
-                if section in repeated_sections.keys():
-                    repeated_sections[section]+=1
-                else: 
-                    repeated_sections[section]=1
-                repeat_counter+=1
-                repeated_keywords.append(keyword)
+                [repeated_sections,repeated_keywords, repeat_counter] = check_section(section, repeated_sections, repeated_keywords, repeat_counter,keyword)
         else:
             for j in range(len(keywords_input[i])):
                 keyword = keywords_input[i][j]
                 section = in_module(module_dict2,keyword,index2)
                 if type(section) == str:
-                    if section in repeated_sections.keys():
-                        repeated_sections[section]+=1
-                    else: 
-                        repeated_sections[section]=1
-                    repeat_counter+=1
-                    repeated_keywords.append(keyword)
+                    [repeated_sections,repeated_keywords, repeat_counter] = check_section(section, repeated_sections, repeated_keywords, repeat_counter,keyword)
                     break
     squared_sum = 0
     for k in range(len(repeated_sections.values())):
@@ -151,7 +141,7 @@ def pair_finder(all_modules,info_array, min_val, max_val=1):
     length = len(info_array)
     for i in range(length):
         for j in range(length):
-            if info_array[i][j] >= min_val and info_array[i][j] <= max_val:
+            if info_array[i][j] > min_val and info_array[i][j] <= max_val:
                 pairs.append([module_codes[i],module_codes[j]])
     return pairs
 

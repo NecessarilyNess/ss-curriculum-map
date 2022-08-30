@@ -132,3 +132,13 @@ def data_to_excel(all_modules, info_array, write_destination):
                     index=module_codes,
                     columns=module_codes)
     df1.to_excel(excel_writer = write_destination)
+
+def check_section(section, repeated_sections, repeated_keywords, repeat_counter,keyword):
+    
+    if section in repeated_sections.keys():
+        repeated_sections[section]+=1
+    else: 
+        repeated_sections[section]=1
+    repeat_counter+=1
+    repeated_keywords.append(keyword)
+    return [repeated_sections,repeated_keywords, repeat_counter]
