@@ -2,6 +2,7 @@ import json
 import os
 from helper_functions import *
 
+## LOAD ALL CSV FILES IN MODULE CSV DIRECTORY INTO A DICTIONARY
 def all_modules_dict(json_relative_path, module_csv_directory_full_path, modules_csv_directory_percent_s):
     '''
     Loads all of the csv files in the module_csv_files directory into a dictionary.
@@ -27,8 +28,7 @@ def all_modules_dict(json_relative_path, module_csv_directory_full_path, modules
 
     return all_modules
 
-
-# Function to add module to json_file
+#### ADDS AN INDIVIDUAL MODULE TO THE JSON FILE
 def dict_maker(module_csv_path, all_modules):
     '''
     Takes module information from a csv file and formats as a python dictionary of the form 
