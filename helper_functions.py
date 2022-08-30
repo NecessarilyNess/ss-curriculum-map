@@ -35,19 +35,18 @@ def whitespace_cleaner(term):
     return(" ".join((term.lower()).split()))
 
 
-def close_quote_cleaner(term_list):
+def close_quote_cleaner(term):
     '''
     Replaces the unicode character "\u2019" with "'" for terms in a list.
     Parameters: 
-        term_list (list): List containing synonyms of a term
+        term (str): term
     Returns:
-        term_list (list): List of the same terms with "\u2019" replaced by "'"
+        term (str): Same term with "\u2019" replaced by "'"
     '''
-    for i in range(len(term_list)):
-        if "\u2019" in term_list[i]:
-            term_list[i] = term_list[i].replace("\u2019", "'")
-            return term_list
-    return term_list
+    if "\u2019" in term:
+        term = term.replace("\u2019", "'")
+        return term
+    return term
 
 
 def normalise(array, factor):
