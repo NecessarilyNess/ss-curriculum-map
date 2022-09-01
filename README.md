@@ -20,7 +20,7 @@ A few notes about this
 1. If using a xslx or numbers file, only one sheet should be populated otherwise information will be lost when converting to csv.
 2. Headings should be exactly as is shown (including capitalisation and spacing). This includes
     * Module Information
-    * Section # [Note: index starting from 1]
+    * Section # *[Note: index starting from 1]*
     * Keywords (Prerequisite)
     * Skills (Taught)
     * Skills (Prerequisite)
