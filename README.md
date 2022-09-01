@@ -35,7 +35,7 @@ The csv files should be saved in one folder.
 ### Script for Running Code
 The specifics of running each function can be found in the appropriate doc string but in order to get comparison information for the modules, a python script of the following form would be the best way to go
 
-Import all the files containing functions
+#### Import all the files containing functions
 
 ```python
 from helper_functions import *
@@ -44,9 +44,38 @@ from search_file import *
 from module_comparisons import *
 ```
 
-Populate the JSON file with module information in the appropriate format 
+#### Populate the JSON file with module information in the appropriate format 
 ```python 
 all_modules = all_modules_dict('./module_dict.json', '/Users.../module_csv_files', './module_csv_files/%s')
 ```
 Where the relative path to the json file replaces the first argument (with whatever you called it), similarly for the full and relative paths to the directory containing the csv files. **The %s is important!**
 
+#### Set Parameter Values 
+
+You can do this straight into the function but for the sake of instruction, I'll do it explicity here
+```python
+index1 #Takes the value 1 or 2. 1 indicates the taught keywords of module 1. 2 indicates the prerequite keywords of module 1
+index2 #Takes the values 1 or 2. 1 indicates the taught keywords of module 2. 2 indicates the prerequite keywords of module 2
+repeat_or_cluster #Takes the values 1 or 2. 1 indicates the similarity score based on the number of repeated keywords. 2 indicates similarity score based on 'clustering' (for details see the Score Generating section).
+min_val #Takes a value between 0 and 1 (threshold for two modules to be considered similar)
+max_val #Takes a value between 0 and 1 (upper limit of similarity being considered.)
+write_destination = "/Users/.../results.xlsx" #Replace that with the full path to the xslx file you want to write to.
+
+```
+
+#### Run a Similarity Comparison
+
+```python
+similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val, write_destination, max_val)
+```
+
+#### (Optional) Investigate interesting similarity
+You may find some of the apparent similarity interesting or odd. To specifically investigate this, you'd want something like
+
+``` python module_dict1 = all_modules['module_code1']
+module_dict2 = all_modules['module_code2']
+print(is_there_overlap(module_dict1, module_dict2, index1, index2))
+```
+Which will a list who's last entry contains the keywords that have been repeated.
+
+### Score Generating
