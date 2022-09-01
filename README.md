@@ -26,6 +26,7 @@ A few notes about this
     * Skills (Prerequisite)
 3. If a term has synonyms, the syntax for handling this is
     > term// term
+    
 I.e term 1 followed by two forward slashes followed by a space follow by synonym for term 1 and so on.
 4. We used an indexing system to handle the same word being used for different concepts which will not be included here.
 5. There should be no blank cells in the column before the end of the Skills (Prerequisite)
