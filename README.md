@@ -72,10 +72,28 @@ similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val, 
 #### (Optional) Investigate interesting similarity
 You may find some of the apparent similarity interesting or odd. To specifically investigate this, you'd want something like
 
-``` python module_dict1 = all_modules['module_code1']
+``` python 
+module_dict1 = all_modules['module_code1']
 module_dict2 = all_modules['module_code2']
 print(is_there_overlap(module_dict1, module_dict2, index1, index2))
 ```
 Which will a list who's last entry contains the keywords that have been repeated.
 
 ### Score Generating
+
+For the mathematically inclined amongst you, the similarity scores are generated as follows
+
+#### Repeated Keywords
+
+Once the number of repeated keywords has been calculated between each module pair, this is put into a structure that resembles a symmetric matrix, and all the values are divided by the largest number found in that matrix (the largest number of repeats between any two modules).
+
+#### Clustering of Keywords
+
+Given that there is similarity between keywords in a module, this determines how spread out said keywords are across the modules. The way I have chosen to do this is to consider the following metrics. When comparing module i and module j
+* Number of repeated keywords divided by the number of sections they're repeated across in module j
+* Maximum number of repeated keywords in any given section within module j
+* The number of repeated keywords in each section in module j squares and then summed over all the sections in module j.
+
+These numbers are then weighted 1:3:3 and then normalised with respect to the largest number similarly to [link](#repeated-keywords).
+
+A matrix of the similarity scores (determined by the chosen indices) is written to an xslx file.

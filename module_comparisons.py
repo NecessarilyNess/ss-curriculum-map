@@ -129,8 +129,8 @@ def pair_finder(all_modules,info_array, min_val, max_val=1):
         all_modules (dict): Dictionary containing all modules
         info_array (array): Either array containing normalised number of keywords or array containing
                             the normalised clustering score.
-        min_val (float): Threshold lower value for two modules to be considered similar
-        max_val (float) (optional): Threshold upper value for two modules to be considered weakly similar.
+        min_val (float): Threshold lower value for two modules to be considered similar. Values between 0 and 1 (inclusive)
+        max_val (float) (optional): Threshold upper value for two modules to be considered weakly similar. Value between 0 and 1 (inclusive)
         Default value is 1. 
         **max_val is only worth using if looking for small amounts over overlap between modules**
     Returns: 
@@ -287,9 +287,9 @@ def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_v
         repeat_or_cluster (int): Takes the values 1 or 2
             1: Return results for repeated keywords
             2: Return results for clustering of repeated keywords
-        min_val (float): Threshold value for two modules to be considered similar.
+        min_val (float): Threshold value for two modules to be considered similar. Value between 0 and 1 (inclusive)
         write_destination (str): Path to xslx file to write to
-        max_val (float) (optional): Threshold upper value for two modules to be considered weakly similar.
+        max_val (float) (optional): Threshold upper value for two modules to be considered weakly similar. Value between 0 and 1 (inclusive)
         Default value is 1. 
         **max_val is only worth using if looking for small amounts over overlap between modules**
         
