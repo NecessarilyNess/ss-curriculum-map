@@ -1,0 +1,33 @@
+﻿Module Information,Section 1,Section 2,Section 3,Section 4,Section 5,Section 6
+Probability for statistics,Probability review,Random variables,Multivariate Random Variables,Convergence of Random Variables,Central limit theorem,Stochastic Processes
+MATH50010,Experiment,Random Variable,Variable,Converge in probability,Moment generating function,Stochastic process
+2,Sample space,Pre-image,Joint cumulative distribution function,Markov's inequality,Little o notation,Markov Chain
+1,Outcome,Distribution,Joint probability density function,Chebychev's inequality,The central limit theorem,Time homogenous
+6,Event,Indentically distributed,Joint absolute continuity,Weak Law of Large Numbers,Keywords (Prerequisite),Transition matrix
+,Algebra,Cumulative distribution function// CDF,Marginal density function,Converge in distribution,Skills (Taught),Stochastic matrix
+,Sigma algebra,Monotonically decreasing sequence,Independent finite collection of random variables,Infinitely often,Skills (Prerequisite),Initial distribution
+,Borel sigma algebra,Monotonically increasing sequence,Independent arbitrary collection of random variables,Almost always,,Simple random walk
+,Borel set,Constant random variable// Point mass CDF,Covariance,Borel-Canteli lemmas,,Matrix of n-step transition probabilities
+,Probability measure// Probability function,Discrete random variable,Correlation,Keywords (Prerequisite),,Chapman-Kolmogorov Equations
+,Probability space,Probability mass function// PMF,Inner product,Skills (Taught),,Accesible
+,Continuity property of probability space,Continuous random variable,Jacobian determinant,Skills (Prerequisite),,Communicate
+,Countable additivity,Absolutely continuous random variable,Conditional probability density function,,,Communicating classes
+,Lebesgue measure,Probability density function// PDF,Standard bivariate normal distribution// Bivariate normal distribution,,,Closed
+,Lebesgue sigma algebra,Lebesgue decomposition theorem,Multivariate normal distribution,,,Irreducible
+,Conditional probability of A given B,Singular continuous distribution,Variance-covariance matrix,,,Period
+,Independent events,Location family,Order statistics,,,Aperiodic
+,Mutually independent collection of events,Scale family,Keywords (Prerequisite),,,Periodic
+,Keywords (Prerequisite),Location-scale family,Conditional probability,,,Recurrent
+,Skills (Taught),Probability integral transform,Skills (Taught),,,Transient
+,Skills (Prerequisite),Keywords (Prerequisite),Finding joint PDF of transformed variables,,,First passage time
+,,Expectation,Skills (Prerequisite),,,Mean recurrence time
+,,Skills (Taught),,,,Null recurrent
+,,Finding PDF of transformed RV,,,,Hitting time
+,,Skills (Prerequisite),,,,Hitting probability
+,,,,,,Absorbing state
+,,,,,,Probability distribution
+,,,,,,Stationary
+,,,,,,Stationary distribution
+,,,,,,Keywords (Prerequisite)
+,,,,,,Skills (Taught)
+,,,,,,Skills (Prerequisite)

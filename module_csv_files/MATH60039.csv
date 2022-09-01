@@ -1,0 +1,52 @@
+﻿Module Information,Section 1,Section 2,Section 3
+Group Representation Theory,Introduction and fundamentals,Character theory,Algebras and modules
+Math60039,group,character of a representation,Algebras and modules
+3,trivial representation,trace of a representation,algebra homomorphism
+1,representation of a group,fixed point,opposite algebra
+3,homomorphism of representations,class function,left module
+,isomorphic representations,conjugacy class,submodule
+,complex n-dimensional representation,inner product,simple module
+,equivalent representations,complex inner product,irreducible module
+,simultaneous conjugation,hermitian inner production,quotient module
+,complex vector space,orthogonal,Schur's Lemma
+,linear combinations,orthonormal,direct sum of modules
+,regular representation,irreducible representation,semisimple module
+,subrepresentation,irreducible character,complementary submodule
+,proper subrepresentation,character table,Artin-Wedderburn theorem
+,irreducible representation,Vandermonde matrix,Hochschild trace
+,simple representation,unitary matrix,center of algebra
+,reducible representation,kernel,linear projection
+,reflection representation,Keywords (Prerequisite),general algebra
+,quotient representation,inner product,projection operator
+,external direct sum,inner product space,Keywords (Prerequisite)
+,internal direct sum,left-linear,Skills (Taught)
+,decomposable,matrix of an inner product,Skills (Prerequisite)
+,indecomposable,Hermitian matrix,
+,semisimple representation,orthogonality,
+,completely reducible representation,orthogonal,
+,complementary subrepresentation,orthonormal,
+,Maschke's theorem,gram-schmidt process,
+,schur's lemma,fourier coefficients,
+,commutator subgroup,projections,
+,abelianisation,orthogonal projection map,
+,one-dimensional representation,shortest distance,
+,homomorphism of representations,orthonormal basis,
+,invariant subspace,unitary matrix,
+,dualisation,Skills (Taught),
+,tensor product,Constructing groups up to isomorphisms,
+,universal property of tensor product,Skills (Prerequisite),
+,tensor product representation,Linear algebra problem solbing from year 2,
+,external tensor product,,
+,Keywords (Prerequisite),,
+,Homomorphism,,
+,Automorphism,,
+,Isomorphism ,,
+,Normal subgroup,,
+,Left coset,,
+,Quotient group,,
+,Simple subgroup,,
+,Isomorphism Theorem,,
+,Centre ,,
+,Commutator,,
+,Skills (Taught),,
+,Skills (Prerequisite),,

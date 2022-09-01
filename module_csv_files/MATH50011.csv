@@ -1,0 +1,41 @@
+﻿Module Information,Section 1,Section 2,Section 3,Section 4,Section 5,Section 6,Section 7,Section 8,Section 9,Section 10
+Statistical Modelling 1,Statistical Models,Point estimation,Asymptotic properties,Maximum Likelihood Estimation,Confidence Regions,Hypothesis Tests,Likelihood ratio tests,Linear models with second order assumptions,Linear models with normal theory assumptions,"Diagnostics, Model selection, Extensions"
+MATH50011,Statistical Model,Estimate,Consistent,Maximum likelihood estimator,Confidence interval,Hypothesis,Likelihood ratio test statistic,linear model,Multivariate normal distribution,Outlier
+2,Distribution,Estimator,Weakly consistent,Large sample,One-sided confidence interval,Null hypothesis,Test statistic,linear regression,Univariate normal distribution,Standardised residuals
+2,Sample Space,Parameter,Portmanteau Lemma,Keywords (Prerequisite),Construction of confidence intervals,Alternative Hypothesis,Independent restrictions,simple linear model,Characteristic function,Leverage
+10,Parameter space,Properties of estimators,Convergence in probability,Skills (Taught),Pivotal quantity,Hypothesis test,Independent parameters,Outcome,Distributions from Multivariate ,High-leverage
+,Parametric models,Bias,Convergence in distribution,Skills (Prerequisite),Sequence of intervals,Rejection region,Degrees of freedom,response,Non-central t-distribution,Cook's Distance
+,Unknown parameter,Unbiased,Asymptotically unbiased,,Asymptotic pivotal quantity,Critical region,Keywords (Prerequisite),covariate,Degrees of freedom,Underfitting
+,Point estimate,Biased,Asymptotically normal,,Simultaneous confidence intervals,Power of a test,Skills (Taught),Error,Non-centrality parameter,Overfitting
+,Keywords (Prerequisite),Standard error,Central Limit Theorem,,Bonferroni correction,Power function,Skills (Prerequisite),Matrix algebra,Non-central,Weighted least squares estimator
+,Skills (Taught),Standard deviation,Slutsky's Lemma,,Keywords (Prerequisite),P-value,,Invertible,Fisher-Cochran Theorem,Residual Plots
+,Skills (Prerequisite),Mean square error,Delta Method,,Skills (Taught),Level test,,Non-singular,Linear models with normal theory assumption,Quantile-Quantile plots
+,,Cramer-Rao,Continuous Mapping Theorem,,Skills (Prerequisite),Two-sided test,,Rank-nullity Theorem,"Confidence intervals, Tests for one-dimensional",Goodness-of-fit tests
+,,Ramer Lower bound,Keywords (Prerequisite),,,Connection between tests and confidence intervals,,Symmetric Matrix,The F-test,Kolmogorov-Smirnov test
+,,Fisher,Skills (Taught),,,Keywords (Prerequisite),,Orthogonal Matrix,Confidence region,Generalized linear models
+,,Fisher information,Skills (Prerequisite),,,Skills (Taught),,Diagonal,Keywords (Prerequisite),link-function
+,,Keywords (Prerequisite),,,,Skills (Prerequisite),,Positive definite,Skills (Taught),logit-model
+,,Skills (Taught),,,,,,Random vectors,Skills (Prerequisite),Keywords (Prerequisite)
+,,Skills (Prerequisite),,,,,,Linear model,,Skills (Taught)
+,,,,,,,,design matrix,,Skills (Prerequisite)
+,,,,,,,,unknown parameter,,
+,,,,,,,,Second order Assumption,,
+,,,,,,,,Normal theory assumption,,
+,,,,,,,,full rank,,
+,,,,,,,,Identifiability,,
+,,,,,,,,Identifiable parameter,,
+,,,,,,,,Least squares,,
+,,,,,,,,Least squares estimator,,
+,,,,,,,,Gauss Markov Theorem,,
+,,,,,,,,Projection Matrices,,
+,,,,,,,,Residuals. Estimation of variance,,
+,,,,,,,,Vector of fitted values,,
+,,,,,,,,Vector of residuals,,
+,,,,,,,,Hat matrix,,
+,,,,,,,,Diagnostic plots,,
+,,,,,,,,Residual sum of squares,,
+,,,,,,,,Coefficient of determination,,
+,,,,,,,,Intercept term,,
+,,,,,,,,Keywords (Prerequisite),,
+,,,,,,,,Skills (Taught),,
+,,,,,,,,Skills (Prerequisite),,

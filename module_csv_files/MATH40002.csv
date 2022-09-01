@@ -1,0 +1,24 @@
+﻿Module Information,Section 1,Section 2,Section 3,Section 4,Section 5,Section 6,Section 7,Section 8
+Analysis 1,Logic,Numbers,Sequences,Series,Continuity,Continuity,Differentiation,Integration
+MATH40002,Keywords (Prerequisite),Rational numbers,Convergence of sequences,Convergence of series,Limit,Intermediate value theorem,Product rule,Darboux sum
+1,Skills (Taught),Trichotomy axiom,Monotonicity,Comparison test,Continuity,Extreme value theorem,Quotient rule,The Darboux integral
+1+2,Skills (Prerequisite),Archimedean axiom,Uniqueness of limits,Algebra of limits for series,Keywords (Prerequisite),Open set,Chain rule,Basic properties of integration
+8,,Decimal,Algebra of limits,Absolute convergence,Skills (Taught),Closed set,Mean value theorem 0,Fundamental theorem of calculus
+,,Finite decimals,Cauchy sequence,Sandwich test,Skills (Prerequisite),Compact set,Rolle’s theorem,Mean value theorem 1 for integrals
+,,Eventually periodic decimal,Subsequences,Alternating series test,,Uniform convergence,"L’Hopital’s rule, one-sided version",Integration by parts
+,,Arbitrary decimals,Bolzano-Weierstrass,Ratio test,,Uniform continuity,L’Hopital’s rule,Limits of integrable functions
+,,Countability,Cauchy theorem 0,Root test,,Weierstrass M-test,Higher derivatives,Integration by substitution
+,,Cantor’s diagonal argument,Keywords (Prerequisite),Rearrangement of series,,Keywords (Prerequisite),Taylor’s theorem,Improper integral
+,,The completeness axiom,Skills (Taught),Power series,,Skills (Taught),Second derivatives and convexity,Lebesgue integrability
+,,Supremum,Skills (Prerequisite),Radius of convergence,,Weierstrass M-test,Limits of differentiable functions,Keywords (Prerequisite)
+,,Dedekind cut,,Products of series// Cauchy product,,Skills (Prerequisite),Differentiation of power series,Skills (Taught)
+,,Triangle inequalities,,Exponential power series,,,Keywords (Prerequisite),Integration by parts
+,,Keywords (Prerequisite),,Keywords (Prerequisite),,,Skills (Taught),Integration by substitution
+,,Skills (Taught),,Skills (Taught),,,Product rule,Skills (Prerequisite)
+,,Triangle inequalities,,Comparison test,,,Quotient rule,
+,,Skills (Prerequisite),,Sandwich test,,,Chain rule,
+,,,,Alternating series test,,,Differentiation of power series,
+,,,,Ratio test,,,Skills (Prerequisite),
+,,,,Root test,,,,
+,,,,Products of series// Cauchy product,,,,
+,,,,Skills (Prerequisite),,,,
