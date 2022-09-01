@@ -24,10 +24,7 @@ A few notes about this
     * Keywords (Prerequisite)
     * Skills (Taught)
     * Skills (Prerequisite)
-3. If a term has synonyms, the syntax for handling this is
-    > term// term
-    
-I.e term 1 followed by two forward slashes followed by a space follow by synonym for term 1 and so on.
+3. If a term has synonyms, the syntax for handling this is `term// term` i.e term 1 followed by two forward slashes followed by a space follow by synonym for term 1 and so on.
 4. We used an indexing system to handle the same word being used for different concepts which will not be included here.
 5. There should be no blank cells in the column before the end of the Skills (Prerequisite)
 6. Add columns for each section in the module. The total number of (populated) columns in the file should be `Number of Sections + 1`
