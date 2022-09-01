@@ -94,6 +94,6 @@ Given that there is similarity between keywords in a module, this determines how
 * Maximum number of repeated keywords in any given section within module j
 * The number of repeated keywords in each section in module j squares and then summed over all the sections in module j.
 
-These numbers are then weighted 1:3:3 and then normalised with respect to the largest number similarly to [link](#repeated-keywords).
+These numbers are then weighted 1:3:3 and then normalised with respect to the largest number similarly to [Repeated Keywords](#repeated-keywords).
 
-A matrix of the similarity scores (determined by the chosen indices) is written to an xslx file.
+A matrix of the similarity scores (determined by the chosen indices - see [Set Parameter Values](#set-parameter-values)) is written to an xslx file.
