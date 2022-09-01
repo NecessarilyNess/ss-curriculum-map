@@ -68,7 +68,7 @@ write_destination = "/Users/.../results.xlsx" #Replace that with the full path t
 similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val, write_destination, max_val)
 ```
 
-#### (Optional) Investigate interesting similarity
+#### (Optional) Investigate Interesting Similarity
 You may find some of the apparent similarity interesting or odd. To specifically investigate this, you'd want something like
 
 ``` python 
