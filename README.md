@@ -4,12 +4,13 @@
 2. [Prerequisites](#prerequisites)
 3. [CSV Formatting](#csv-formatting)
 4. [Script for Running Code](#script-for-running-code)
+5. [Score Generating](#score-generating)
 ### General Information
 This packaged was written for the StudentShapers Curriculum Mapping Project in the Department of Mathematics at Imperial College London. 
 Given information about modules (csv), this code can be used to load all the modules into one data structure and to compare the keywords in each module to all the other available modules. Keywords are split into required and taught to help establish the nature of links between modules (i.e similar or prerequisite).
 
 ### Prerequisites 
-This package was written in python 3.8
+This package was written in Python 3.8
 
 ### CSV Formatting
 In order to play nicely with the code that loads the module information into the data structure (JSON) that houses all the modules, the csv file for the module has to be written in a specific way. See example below
