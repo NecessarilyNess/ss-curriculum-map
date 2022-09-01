@@ -97,7 +97,7 @@ def repeat_similarity(all_modules, index1, index2, info_index):
 
 def clustering_score(all_modules, index1, index2):
     '''
-    Provides a table of relative scores of 'clustering' of repeated keywords across all modules. Weights divided repeats,
+    Provides a table of relative scores of 'clustering' of repeated keywords across all modules. Repeats divided repeats,
     max repeats and squared sum of repeats at 1:3:3.
     Parameters: 
         all_modules (dict): Dictionary containing all modules
