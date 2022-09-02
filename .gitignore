@@ -4,3 +4,5 @@ __pycache__
 my_scripts.py
 test.xlsx
 test.csv
+module_csv_files
+module_dict.json
