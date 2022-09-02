@@ -150,3 +150,21 @@ def check_section(section, repeated_sections, repeated_keywords, repeat_counter,
     repeat_counter+=1
     repeated_keywords.append(keyword)
     return [repeated_sections,repeated_keywords, repeat_counter]
+
+def keyword_list_update(i, j, keyword_list, dataframe):
+    '''
+    Given indices that specify a component in a module dataframe, appends they keyword(s)/skill(s)
+    contained in that component.
+    Parameters:
+        i (int): Index for position within the section (column)
+        j (int): Index belonging to the section number
+        keyword_list (list): List of desired keywords 
+        dataframe (dataframe): pandas dataframe built from csv file
+    Returns:
+        keyword_list (list): Input list with index keyword(s) appended.
+    '''
+    if '// ' in dataframe['Section '+str(j)][i]:
+        keyword_list.append(multiple_names(whitespace_cleaner(dataframe['Section '+str(j)][i])))
+    else:
+        keyword_list.append([whitespace_cleaner(dataframe['Section '+str(j)][i])])
+    return keyword_list
