@@ -31,6 +31,10 @@ A few notes about this
 
 The csv files should be saved in one folder.
 
+For an example of a populated csv file, see the below, kindly produced by Matthew Lawrence.
+![My Image](cheese_example.png)
+
+
 ### Script for Running Code
 The specifics of running each function can be found in the appropriate doc string but in order to get comparison information for the modules, a python script of the following form would be the best way to go
 
