@@ -1,34 +1,0 @@
-﻿Module Information,Section 1,Section 2,Section 3,Section 4,Section 5
-Classical dynamics,Dynamics,"Lagrangian Mechanics","Hamiltonian Mechanics","Integrability and Symmetries",Rigid bodies
-MATH60011,Particle,Hamilton’s Principle// Principle of Least Action,Configuration space,Hamilton’s principal function,Spherically symmetric body
-3,Linear momentum,Potential energy function,Phase space,Hamilton jacobi equation,Angular velocity
-1,Equations of motion,Euler-Lagrange equation,Legendre transform,"Simple harmonic oscillator",Rotational kinetic energy
-5,Relativistic momentum,"Action integral",Hamilton’s equation,Hamilton’s characteristic function,Inertia tensor
-,Newton’s law of gravitation,Beltrami formula,Kepler problem,Action angle variable,Moments of intertia
-,Newton’s gravitational constant,Conservation of energy,Poisson bracket,Oscillatory motion(rotation or libration),Euler angle
-,Force,Lagrangian,Leibniz formula,Simple pendulum,Principal axes
-,Newton’s law,Lagrange multiplier,Jacobi identity,Kepler problem,Symmetric top
-,Isolated system,Constraint force,Canonical transformation,Liouville integrability,Uniform density
-,Constant of the motion,Simple pendulum,Fundamental poisson bracket,Noether’s theorem,Keywords (Prerequisite)
-,Displacement,Holonomic constraint,Point transformation,Generator of symmetry,Vector product
-,Velocity 1,Non-Conservative Forces,Generating function 0,Laplace-Runge-Lenz vector,Orthogonality 1
-,Acceleration 1,Principle of Maximal Ageing,Time evolution,Keywords (Prerequisite),Orthonormal basis
-,Kepler problem,Magnetic force,Liouville’s Theorem 1,Skills (Taught),Orthogonal transformation
-,Central force,Magnetic field,Jacobian,Skills (Prerequisite),Skills (Taught)
-,Energy,Electric charge,Simple harmonic motion,,Skills (Prerequisite)
-,"Kinetic energy",Lorentz force law,Keywords (Prerequisite),,
-,Conservative force,Maxwell’s equation,Chain rule for differentiation,,
-,Potential function,Generalised Coordinate,Product rule for differentiation,,
-,Simple harmonic oscillator,Generalised momenta// Canonical momenta,Skills (Taught),,
-,Angular frequency,Cyclic coordinate,Skills (Prerequisite),,
-,Magnetic force,Noether’s theorem,,,
-,Magnetic field,Symmetry,,,
-,"Angular momentum",Keywords (Prerequisite),,,
-,Torque,Spherical polar coordinates,,,
-,Polar Coordinates,Skills (Taught),,,
-,Conservation of angular momentum,Skills (Prerequisite),,,
-,Keywords (Prerequisite),,,,
-,Cross product,,,,
-,Product rule for differentiation,,,,
-,Skills (Taught),,,,
-,Skills (Prerequisite),,,,
