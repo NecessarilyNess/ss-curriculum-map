@@ -65,13 +65,14 @@ repeat_or_cluster #Takes the values 1 or 2. 1 indicates the similarity score bas
 min_val #Takes a value between 0 and 1 (threshold for two modules to be considered similar)
 max_val #Takes a value between 0 and 1 (upper limit of similarity being considered.)
 write_destination = "/Users/.../results.xlsx" #Replace that with the full path to the xslx file you want to write to.
+module_codes = #either all of the modules (module_codes = list(all_modules.keys())) or a filtered version.
 
 ```
 
 #### Run a Similarity Comparison
 
 ```python
-similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val, write_destination, max_val)
+similarity_all_modules(all_modules, module_codes, index1, index2, repeat_or_cluster, min_val, write_destination, max_val)
 ```
 
 #### (Optional) Investigate Interesting Similarity
