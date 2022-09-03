@@ -32,7 +32,7 @@ def all_modules_dict(json_relative_path, module_csv_directory_full_path, modules
 def dict_maker(module_csv_path, all_modules):
     '''
     Takes module information from a csv file and formats as a python dictionary of the form 
-    Module_name = {'module information':['module name', 'code',year,term,number of sections],
+    Module_name = {'module information':['module name', 'code',year,term,number of sections, math_section],
     'section_number': ['section_title', taught_keywords, required_keywords, taught_skills, required_skills]}
     Writes to a json file containing all modules.
     

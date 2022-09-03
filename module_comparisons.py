@@ -53,7 +53,7 @@ def is_there_overlap(module_dict1, module_dict2, index1, index2):
     return [repeat_counter, divided_repeats , max_repeats, squared_sum, repeated_sections, repeated_keywords]
 
 ## GENERATE INFORMATION ARRAYS
-def repeat_similarity(all_modules, index1, index2, info_index):
+def repeat_similarity(all_modules, module_codes, index1, index2, info_index):
     '''
     Compares all modules available in module_dict.json for repeated keywords
     Parameters:
@@ -73,7 +73,6 @@ def repeat_similarity(all_modules, index1, index2, info_index):
         info (array): Returns an array where component ij is the the requested comparison information 
         for module i and module j.
     '''
-    module_codes = list(all_modules.keys())
     #initialising
     info_array = []
 
@@ -95,7 +94,7 @@ def repeat_similarity(all_modules, index1, index2, info_index):
 
     return info_array
 
-def clustering_score(all_modules, index1, index2):
+def clustering_score(all_modules, module_codes, index1, index2):
     '''
     Provides a table of relative scores of 'clustering' of repeated keywords across all modules. Repeats divided repeats,
     max repeats and squared sum of repeats at 1:3:3.
@@ -110,9 +109,9 @@ def clustering_score(all_modules, index1, index2):
     Returns:
         clustering_matrix (array): Array of relative scores of 'clustering'
     '''
-    divided_repeated_keywords = repeat_similarity(all_modules, index1, index2, 1)
-    max_repeats = repeat_similarity(all_modules, index1, index2, 2)
-    squared_sum = repeat_similarity(all_modules, index1, index2, 3)
+    divided_repeated_keywords = repeat_similarity(all_modules, module_codes, index1, index2, 1)
+    max_repeats = repeat_similarity(all_modules, module_codes, index1, index2, 2)
+    squared_sum = repeat_similarity(all_modules, module_codes, index1, index2, 3)
 
     clustering_matrix = []
     for i in range(len(squared_sum)):
@@ -122,7 +121,7 @@ def clustering_score(all_modules, index1, index2):
 
 ## IDENTIFY MODULES WITH SIMILARITY ABOVE THRESHOLD
 
-def pair_finder(all_modules,info_array, min_val, max_val=1):
+def pair_finder(all_modules, module_codes, info_array, min_val, max_val=1):
     '''
     Look for all the module pairs that have a similarity score greater than min_val but less than max_val
     Parameters: 
@@ -137,7 +136,6 @@ def pair_finder(all_modules,info_array, min_val, max_val=1):
         pairs (list): List of module pairs with similarity score above threshold.
     '''
     pairs = []
-    module_codes = list(all_modules.keys())
     length = len(info_array)
     for i in range(length):
         for j in range(length):
@@ -272,7 +270,7 @@ def weak_clustering_results(all_modules, pairs, index1, index2):
 
 ############################### COMPARE ALL MODULES TO EACH OTHER #########################################
 
-def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_val, write_destination, max_val=1):
+def similarity_all_modules(all_modules, module_codes,index1, index2, repeat_or_cluster, min_val, write_destination, max_val=1):
     '''
     Compares desired keywords across all modules for similarity, prints the modules that have a score above
     the threshold and exports all the scores into a excel file.
@@ -295,15 +293,15 @@ def similarity_all_modules(all_modules, index1, index2, repeat_or_cluster, min_v
         
     '''
     if repeat_or_cluster == 1:
-        info_array = repeat_similarity(all_modules, index1, index2, 0)
+        info_array = repeat_similarity(all_modules, module_codes, index1, index2, 0)
     elif repeat_or_cluster == 2:
-        info_array = clustering_score(all_modules, index1, index2)
+        info_array = clustering_score(all_modules, module_codes, index1, index2)
     
-    data_to_excel(all_modules, info_array, write_destination)
+    data_to_excel(all_modules, module_codes, info_array, write_destination)
     if max_val != 1:
-        pairs = pair_finder(all_modules,info_array, min_val, max_val)
+        pairs = pair_finder(all_modules, module_codes, info_array, min_val, max_val)
     else:
-        pairs = pair_finder(all_modules,info_array, min_val)
+        pairs = pair_finder(all_modules, module_codes, info_array, min_val)
 
     if repeat_or_cluster == 1:
         if max_val == 1:
