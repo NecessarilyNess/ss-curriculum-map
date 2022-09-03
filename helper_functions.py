@@ -168,3 +168,30 @@ def keyword_list_update(i, j, keyword_list, dataframe):
     else:
         keyword_list.append([whitespace_cleaner(dataframe['Section '+str(j)][i])])
     return keyword_list
+
+############ FILTER FUNCTIONS ##################
+
+def which_year(code):
+    '''
+    Returns the year a module is taught in from the module code.
+    Parameters:
+        code (str): Module code
+    Returns: 
+        year (int): Year the module is taught in (1,2,3 or 4)
+    '''
+    year = int(list(code)[4]) - 3
+    return year
+
+def year_filter(all_modules, list_of_years = [1,2,3,4]):
+    '''
+    Given a list of years, returns the list of modules taught in those years
+    Parameters: 
+        all_modules (dict): Dictionary containing all modules
+        list_of_years (list): List of year groups to include
+    Returns:
+        filtered_modules (list): Modules taught in the years specified
+    '''
+    module_codes = list(all_modules.keys())
+    filtered_modules = [module for module in module_codes if which_year(module) in list_of_years]
+    return filtered_modules
+            
