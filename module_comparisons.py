@@ -58,6 +58,7 @@ def repeat_similarity(all_modules, module_codes, index1, index2, info_index):
     Compares all modules available in module_dict.json for repeated keywords
     Parameters:
         all_modules (dict): Dictionary containing all modules
+        module_codes (list): List of modules to be considered
         index1 (int): Takes values 1 or 2
         index2 (int): Takes values 1 or 2
             (1,1): Compares taught keywords 
@@ -100,6 +101,7 @@ def clustering_score(all_modules, module_codes, index1, index2):
     max repeats and squared sum of repeats at 1:3:3.
     Parameters: 
         all_modules (dict): Dictionary containing all modules
+        module_codes (list): List of modules to be considered
         index1 (int): Takes values 1 or 2
         index2 (int): Takes values 1 or 2
             (1,1): Compares taught keywords 
@@ -126,6 +128,7 @@ def pair_finder(all_modules, module_codes, info_array, min_val, max_val=1):
     Look for all the module pairs that have a similarity score greater than min_val but less than max_val
     Parameters: 
         all_modules (dict): Dictionary containing all modules
+        module_codes (list): List of modules to be considered
         info_array (array): Either array containing normalised number of keywords or array containing
                             the normalised clustering score.
         min_val (float): Threshold lower value for two modules to be considered similar. Values between 0 and 1 (inclusive)
@@ -276,6 +279,7 @@ def similarity_all_modules(all_modules, module_codes,index1, index2, repeat_or_c
     the threshold and exports all the scores into a excel file.
     Parameters:
         all_modules (dict): Dictionary containing all the modules
+        module_codes (list): List of modules to be considered
         index1 (int): Takes the values 1 or 2
         index2 (int): Takes the values 1 or 2
             (1,1): Compares taught keywords 

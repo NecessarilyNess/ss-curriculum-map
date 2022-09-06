@@ -207,6 +207,14 @@ def which_section(all_modules, code):
     return section
 
 def section_filter(all_modules, list_of_sections = ['pure', 'applied', 'statistics']):
+    '''
+    Given a list of (mathematical) sections, returns the list of modules taught from those sections
+    Parameters: 
+        all_modules (dict): Dictionary containing all modules
+        list_of_years (list): List of sections to include. Default value is ['pure', 'applied', 'statistics']
+    Returns:
+        filtered_modules (list): Modules taught in the sections specified
+    '''
     module_codes = list(all_modules.keys())
     filtered_modules = [module for module in module_codes if which_section(all_modules, module) in list_of_sections]
     return filtered_modules
