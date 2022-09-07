@@ -6,7 +6,7 @@
 4. [Script for Running Code](#script-for-running-code)
 5. [Score Generating](#score-generating)
 ### General Information
-This packaged was written for the StudentShapers Curriculum Mapping Project in the Department of Mathematics at Imperial College London. 
+This package was written for the StudentShapers Curriculum Mapping Project in the Department of Mathematics at Imperial College London. 
 Given information about modules (csv), this code can be used to load all the modules into one data structure and to compare the keywords in each module to all the other available modules. Keywords are split into required and taught to help establish the nature of links between modules (i.e similar or prerequisite).
 
 ### Prerequisites 
