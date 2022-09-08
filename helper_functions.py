@@ -211,10 +211,25 @@ def section_filter(all_modules, list_of_sections = ['pure', 'applied', 'statisti
     Given a list of (mathematical) sections, returns the list of modules taught from those sections
     Parameters: 
         all_modules (dict): Dictionary containing all modules
-        list_of_years (list): List of sections to include. Default value is ['pure', 'applied', 'statistics']
+        list_of_sections (list): List of sections to include. Default value is ['pure', 'applied', 'statistics']
     Returns:
         filtered_modules (list): Modules taught in the sections specified
     '''
     module_codes = list(all_modules.keys())
     filtered_modules = [module for module in module_codes if which_section(all_modules, module) in list_of_sections]
+    return filtered_modules
+
+def year_and_section_filter(all_modules, list_of_years = [1,2,3,4], list_of_sections = ['pure', 'applied', 'statistics']):
+    '''
+    Given lists of years and (mathematical) sections, returns the list of modules taught from those years and sections
+    Parameters: 
+        all_modules (dict): Dictionary containing all modules
+        list_of_years (list): List of year groups to include. Default value is [1,2,3,4]
+        list_of_sections (list): List of sections to include. Default value is ['pure', 'applied', 'statistics']
+    Returns:
+        filtered_modules (list): Modules taught in the years and sections specified
+    '''
+    year_filtered_modules = year_filter(all_modules, list_of_years)
+    section_filtered_modules = section_filter(all_modules, list_of_sections)
+    filtered_modules = [module for module in year_filtered_modules if module in section_filtered_modules]
     return filtered_modules
