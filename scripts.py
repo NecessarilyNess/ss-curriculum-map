@@ -78,7 +78,7 @@ def filter_heatmap(selected_years, selected_categories):
                          )
     fig.update_traces(x = [code_to_name(all_modules, code) for code in filtered_modules],
                       y = [code_to_name(all_modules, code) for code in filtered_modules],
-                      hovertemplate='Module Name: %{x}<br>Module Name: %{y}<br>Relative number of repeats: %{z}<extra></extra>')
+                      hovertemplate='%{x}<br>%{y}<br>Relative number of repeats: %{z}<extra></extra>')
     fig.update_xaxes(tickmode = 'array',
                      tickvals = np.linspace(0, 20, len(filtered_modules)),
                      ticktext = filtered_modules)
@@ -103,7 +103,7 @@ def filter_sankey(selected_yr2modules):
         link = dict(
         source = [0, 1, 0, 2, 3, 3, 2, 3, 4, 5], # indices correspond to labels, eg A1, A2, A1, B1, ...
         target = [2, 3, 3, 4, 4, 5, 6, 7, 10, 11],
-        value = [8, 4, 2, 8, 4, 2, 2, 2, 2, 2]
+        value = [8, 4, 2, 8, 4, 2, 2, 2, 2, 2] #unfinished
     ))])
     return sankey
 if __name__ == '__main__':
