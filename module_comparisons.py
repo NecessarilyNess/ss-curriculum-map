@@ -319,6 +319,7 @@ def similarity_all_modules(all_modules, module_codes,index1, index2, repeat_or_c
         else:
             weak_clustering_results(all_modules, pairs, index1, index2)
 
+#unfinished
 def sankey_values(all_modules, module_codes, info_array, min_val, info_index = 0):
     '''
     Prints the results for pairs of modules that exceed the similarity score threshold, stating exactly how
