@@ -318,3 +318,46 @@ def similarity_all_modules(all_modules, module_codes,index1, index2, repeat_or_c
             clustering_results(all_modules, pairs, index1, index2)
         else:
             weak_clustering_results(all_modules, pairs, index1, index2)
+
+def sankey_values(all_modules, module_codes, info_array, min_val, info_index = 0):
+    '''
+    Prints the results for pairs of modules that exceed the similarity score threshold, stating exactly how
+    **This only tells us about repeated keywords and shouldn't be used in isolation as index1 and index2 need to be the same as those
+    that were used to generate the info array.**
+    **THIS FUNCTION IS MEANT TO BE USED ONLY WHEN MAX_VAL == 1 IS AN ARGUMENT FOR THE PAIR_FINDER FUNCTION**
+    Parameters:
+        all_modules (dict): Dictionary containing all modules
+        module_codes (list): List of modules to be considered
+        info_array (array): Either array containing normalised number of keywords or array containing
+                            the normalised clustering score.
+        min_val (float): Threshold lower value for two modules to be considered similar. Values between 0 and 1 (inclusive)
+        info_index (int): Selects the desired comparison metric from the following options
+            0: Number of repeated keywords (normalised wrt largest value)
+            1: Number of repeated keywords/number of chapters spread across (normalised wrt largest value)
+            2: Maximum number of repeated keywords in any section in module 2 (normalised wrt largest value)
+            3: Squared sum of number of repeated keywords in each chapter in modules 2 (normalised wrt largest value)
+    Returns:
+        source_list (list): List of source nodes for Sankey diagram
+        target_list (list): List of target nodes for Sankey diagram
+        value_list (list): List of weights for Sankey diagram, correlating to similarity score
+       
+    '''
+    source_list = []
+    target_list = []
+    value_list = []
+
+    info_array = repeat_similarity(all_modules, module_codes, index1 = 1, index2 = 2, info_index = info_index)
+    pairs = pair_finder(all_modules, module_codes, info_array, min_val, max_val=1)
+
+    if index1 == index2:
+        pairs = remove_duplicate(pairs)
+    for i in range(len(pairs)):
+        module1 = pairs[i][0]
+        module2 = pairs[i][1]
+        similarity_val = info_array[i] #incorrect need to change
+
+        if which_year(module1) == 1 and not which_year(module2) == 1:
+            source_list.append(module1)
+            target_list.append(module2)
+            value_list.append(similarity_val)
+    return source_list, target_list, value_list
